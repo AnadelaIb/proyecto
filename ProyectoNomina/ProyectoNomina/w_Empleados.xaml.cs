@@ -60,42 +60,25 @@ namespace ProyectoNomina
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-           
-    //        Empleado emple = new Empleado();
-    //        //arte.Id_Artesania = ? Es autogenerado! ish!
-    //        arte.Descripcion = txtDescripcion.Text;
-    //        arte.Material = (Material)cboMaterialPrincipal.SelectedItem;
 
-    //        if (rdbNacional.IsChecked == true)
-    //            arte.Procedencia = rdbNacional.Content.ToString();
-    //        else
-    //            arte.Procedencia = rdbImportado.Content.ToString();
+            Empleado emple = new Empleado();
+            
+            emple.Nombres = txtNombre.Text;
+            emple.Apellidos = txtApellido.Text;
+            emple.Nro_Documento = txtDocumento.Text;
+            emple.Direccion = txtDireccion.Text;
+            emple.Nro_Telefono = txtNroTelefono.Text;
+            //emple.Fecha_Nacimiento = txtFechNacimiento.Text;
+            //emple.Fecha_Incorporacion = txtFechIngreso.Text;
+            emple.Imagen_Perfil = imgPhoto.Source.ToString();
+            //emple.Salario_Basico = txtSalarioBasico.Text;
+            //Guardamos la artesania
+            datos.Empleado.Add(emple);
+            datos.SaveChanges();
 
-    //        arte.PathImagen = imgPhoto.Source.ToString();
-
-    //        //Guardamos la artesania
-    //        datos.Artesania.Add(arte);
-    //        datos.SaveChanges();
-
-    //        //Como Artesania/Categoria se guarda en una tabla aparte (correlación), entonces a continuación hacemos eso...            
-    //        //Que categorias checkeó?
-    //        foreach (var chk in chksCategorias.Children.OfType<CheckBox>())
-    //        {
-    //            //Obtenemos la categoria de acuerdo al id, guardado en el tag:
-    //            if (chk.IsChecked == true)
-    //            {
-    //                int idCategoria = int.Parse(chk.Tag.ToString());
-    //                Categoria c = datos.Categoria.Find(idCategoria);
-
-    //                Artesania_Categoria ac = new Artesania_Categoria();
-    //                ac.Artesania = arte;
-    //                ac.Categoria = c;
-
-    //                datos.Artesania_Categoria.Add(ac);
-    //                datos.SaveChanges();
-    //            }
-    //        }
-      }
+            
+            
+        }
 
         private void dgArtesanias_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
