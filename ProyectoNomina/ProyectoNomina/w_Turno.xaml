@@ -1,0 +1,50 @@
+﻿<Window x:Class="ProyectoNomina.Turno"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoNomina"
+        mc:Ignorable="d"
+         Title="Turno" Height="600" Width="500" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Color x:Key="Color1">#FF7E119E</Color>
+    </Window.Resources>
+
+    <Canvas Margin="0,0,0,3">
+        <GroupBox Header="Datos de Turno" Canvas.Left="10" Canvas.Top="15" Height="236" Width="466">
+            <Grid Margin="0,0,0,41">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="170"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Content="Id" HorizontalAlignment="Right" Margin="0 0 5 0"></Label>
+                <Label Grid.Column="0" Grid.Row="1" Content="Horario de Entrada" HorizontalAlignment="Right" Margin="0 0 5 0"></Label>
+                <Label Grid.Column="0" Grid.Row="2" Content="Horario de Salida" HorizontalAlignment="Right" Margin="0 0 5 0"></Label>
+                <Label Grid.Column="0" Grid.Row="3" Content="Observaciones" HorizontalAlignment="Right" Margin="0 0 5 0"></Label>
+                <TextBox Grid.Column="1" Grid.Row="0" Name="txtId" Width="120" HorizontalAlignment="Left" IsReadOnly="True" Margin="0,5,0,0"/>
+                <TextBox Grid.Column="1" Grid.Row="1" Name="txtHorarioEntrada" Height="35" HorizontalAlignment="Left" Width="160"></TextBox>
+                <TextBox Grid.Column="1" Grid.Row="2" Name="txtHorarioSalida" Height="35" HorizontalAlignment="Left" Width="160" ></TextBox>
+                <TextBox Grid.Column="1" Grid.Row="3" Name="txtObservacion" HorizontalAlignment="Left" Width="250" Margin="0,0,0,10"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Turno/Horario" Canvas.Left="10" Canvas.Top="256" Height="200" Width="466">
+            <DataGrid Name="dgTurnos" MouseDoubleClick="dgTurnos_MouseDoubleClick"></DataGrid>
+        </GroupBox>
+        <Button x:Name="btnLimpiar" Content="Limpiar" Canvas.Left="22" Canvas.Top="490" Width="93" Foreground="#DDFFFFFF" Height="35"  Click="btnLimpiar_Click">
+            <Button.Background>
+                <SolidColorBrush Color="#FF673AB7"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnEliminar" Content="Eliminar" Canvas.Left="259" Canvas.Top="490" Width="93" Background="#FF673AB7" Foreground="#DDFFFFFF" Height="35" Click="btnEliminar_Click"/>
+        <Button x:Name="btnModificar" Content="Modificar" Canvas.Left="139" Canvas.Top="490" Width="93" Background="#FF673AB7" Foreground="#DDFFFFFF" Height="35" Click="btnModificar_Click"/>
+        <Button x:Name="btnGuardar" Content="Guardar" Canvas.Left="383" Canvas.Top="490" Width="93" Background="#FF673AB7" Foreground="#DDFFFFFF" Height="35" Click="btnGuardar_Click"/>
+
+    </Canvas>
+</Window>
