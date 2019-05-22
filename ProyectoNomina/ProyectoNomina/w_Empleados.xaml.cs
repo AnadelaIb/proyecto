@@ -126,7 +126,7 @@ namespace ProyectoNomina
                 CargarDatosGrilla();
             }
             else
-                MessageBox.Show("Debe seleccionar una Artesania de la grilla para modificar!");
+                MessageBox.Show("Debe seleccionar un Empleado de la grilla para modificar!");
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
