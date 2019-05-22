@@ -35,8 +35,8 @@ namespace ProyectoNomina
         {
             try
             {
-                //Con una sola linea de código, cargamos la grilla con las Artesanias
-                dgArtesanias.ItemsSource = datos.Empleado.ToList();
+                //Con una sola linea de código, cargamos la grilla 
+                dgEmpleados.ItemsSource = datos.Empleado.ToList();
             }
             catch (Exception ex)
             {
@@ -68,36 +68,122 @@ namespace ProyectoNomina
             emple.Nro_Documento = txtDocumento.Text;
             emple.Direccion = txtDireccion.Text;
             emple.Nro_Telefono = txtNroTelefono.Text;
-            //emple.Fecha_Nacimiento = txtFechNacimiento.Text;
-            //emple.Fecha_Incorporacion = txtFechIngreso.Text;
+           // DateTime? selectedDate = dpFechaNac.SelectedDate;
+            //if (selectedDate.HasValue)
+            //{
+            //    // String formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            //    emple.Fecha_Nacimiento = selectedDate.Value;
+            //}
+            //DateTime? selectedDate2 = dpFechIngreso.SelectedDate;
+            //if (selectedDate.HasValue)
+            //{
+            //    // String formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            //    emple.Fecha_Incorporacion = selectedDate2.Value;
+            //}
+            emple.Fecha_Nacimiento = Convert.ToDateTime(dpFechaNac.Text);
+            emple.Fecha_Incorporacion = Convert.ToDateTime(dpFechIngreso.Text);
+
+
             emple.Imagen_Perfil = imgPhoto.Source.ToString();
-            //emple.Salario_Basico = txtSalarioBasico.Text;
-            //Guardamos la artesania
+
+            emple.Salario_Basico = Int32.Parse(txtSalarioBasico.Text);
+            
             datos.Empleado.Add(emple);
             datos.SaveChanges();
+            MessageBox.Show("Tus datos se han guardado correctamente!");
+            CargarDatosGrilla();
 
-            
-            
-        }
-
-        private void dgArtesanias_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
 
         }
+
+      
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
+            if (dgEmpleados.SelectedItem != null)
+            {
 
+                Empleado emple = (Empleado)dgEmpleados.SelectedItem;
+
+                emple.Nombres = txtNombre.Text;
+                emple.Apellidos = txtApellido.Text;
+                emple.Nro_Documento = txtDocumento.Text;
+                emple.Direccion = txtDireccion.Text;
+                emple.Nro_Telefono = txtNroTelefono.Text;
+
+                emple.Fecha_Nacimiento = Convert.ToDateTime(dpFechaNac.Text);
+                emple.Fecha_Incorporacion = Convert.ToDateTime(dpFechIngreso.Text);
+
+
+                emple.Imagen_Perfil = imgPhoto.Source.ToString();
+
+                emple.Salario_Basico = Int32.Parse(txtSalarioBasico.Text);
+
+                datos.Entry(emple).State = System.Data.Entity.EntityState.Modified;
+                datos.SaveChanges();
+
+                MessageBox.Show("Tus datos se han modificado correctamente!");
+                CargarDatosGrilla();
+            }
+            else
+                MessageBox.Show("Debe seleccionar una Artesania de la grilla para modificar!");
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
 
+            if (dgEmpleados.SelectedItem != null)
+            {
+                Empleado emple = (Empleado)dgEmpleados.SelectedItem;
+
+                
+
+                datos.Empleado.Remove(emple);
+                datos.SaveChanges();
+                MessageBox.Show("Empleado eliminado correctamente!");
+                CargarDatosGrilla();
+            }
+            else
+                MessageBox.Show("Debe seleccionar un empleado de la grilla para eliminar!");
+
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
+            txtNombre.Text = string.Empty;
+           txtApellido.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtDocumento.Text   = string.Empty;
+            txtNroTelefono.Text = string.Empty;
+            txtSalarioBasico.Text = string.Empty;
+            dpFechaNac.Text =  string.Empty;
+            dpFechIngreso.Text  = string.Empty;
+            imgPhoto.Source = null;
 
+        }
+
+        private void dgEmpleados_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dgEmpleados.SelectedItem != null)
+            {
+                Empleado a = (Empleado)dgEmpleados.SelectedItem;
+
+                
+                txtNombre.Text = a.Nombres;
+                txtApellido.Text = a.Apellidos;
+                txtDireccion.Text = a.Direccion;
+                txtDocumento.Text = a.Nro_Documento ;
+                txtNroTelefono.Text = a.Nro_Telefono;
+                txtSalarioBasico.Text = a.Salario_Basico.ToString();
+                String stringPath = a.Imagen_Perfil;
+                Uri imageUri = new Uri(stringPath);
+                BitmapImage imageBitmap = new BitmapImage(imageUri);
+                imgPhoto.Source = imageBitmap;
+
+                dpFechaNac.Text = a.Fecha_Nacimiento.ToString();
+                dpFechIngreso.Text = a.Fecha_Incorporacion.ToString();
+
+          }
         }
     }
 }
