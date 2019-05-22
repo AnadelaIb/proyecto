@@ -88,11 +88,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="w_Permiso.xaml.cs">
+      <DependentUpon>w_Permiso.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Permisos.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Turno.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="w_Empleados.xaml.cs">
+      <DependentUpon>w_Empleados.xaml</DependentUpon>
     </Compile>
     <Compile Include="w_Turno.xaml.cs">
       <DependentUpon>w_Turno.xaml</DependentUpon>
@@ -115,6 +121,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="w_Permiso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="w_Empleados.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="w_Turno.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
