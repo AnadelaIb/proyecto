@@ -106,14 +106,14 @@
     <Compile Include="w_Empleados.xaml.cs">
       <DependentUpon>w_Empleados.xaml</DependentUpon>
     </Compile>
+    <Compile Include="w_Turno.xaml.cs">
+      <DependentUpon>w_Turno.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Vacaciones.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="w_Turno.xaml.cs">
-      <DependentUpon>w_Turno.xaml</DependentUpon>
     </Compile>
     <Compile Include="w_vacaciones.xaml.cs">
       <DependentUpon>w_vacaciones.xaml</DependentUpon>

@@ -32,8 +32,8 @@ namespace ProyectoNomina
 
         private void MenuTurno_Click(object sender, RoutedEventArgs e)
         {
-           
 
+          
         }
 
         private void MenuConcepto_Click(object sender, RoutedEventArgs e)

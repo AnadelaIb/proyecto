@@ -26,7 +26,11 @@ namespace ProyectoNomina
             datos = new NominaEntities();
         }
 
-
+        private void Limpiar()
+        {
+            txtUsuario.Text = string.Empty;
+            txtPass.Password = string.Empty;
+        }
         private void btnIniciar_Click(object sender, RoutedEventArgs e)
         {
             var b = 0;
@@ -48,6 +52,7 @@ namespace ProyectoNomina
             if (b == 0)
             {
                 MessageBox.Show("Tus datos están incorrecto!");
+                Limpiar();
             }
         }
     }
