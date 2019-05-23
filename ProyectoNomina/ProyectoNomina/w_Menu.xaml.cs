@@ -32,8 +32,8 @@ namespace ProyectoNomina
 
         private void MenuTurno_Click(object sender, RoutedEventArgs e)
         {
-            //w_Turno ventanaTurno = new w_Turno();
-            //ventanaTurno.ShowDialog();
+            w_Turnos ventanaTurno = new w_Turnos();
+           ventanaTurno.ShowDialog();
 
         }
 
@@ -51,8 +51,8 @@ namespace ProyectoNomina
 
         private void menuPermiso_Click(object sender, RoutedEventArgs e)
         {
-            //w_Permiso ventanaPermisos = new w_Permiso();
-            //ventanaPermisos.ShowDialog();
+            w_Permiso ventanaPermisos = new w_Permiso();
+            ventanaPermisos.ShowDialog();
         }
 
         private void menuAnticipo_Click(object sender, RoutedEventArgs e)

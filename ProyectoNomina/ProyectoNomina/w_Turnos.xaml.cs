@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace ProyectoNomina
 {
     /// <summary>
-    /// Lógica de interacción para Turno.xaml
+    /// Lógica de interacción para w_Turnos.xaml
     /// </summary>
-    public partial class Turno : Window
+    public partial class w_Turnos : Window
     {
         NominaEntities datos;
-        public Turno()
+        public w_Turnos()
         {
             InitializeComponent();
             datos = new NominaEntities();
@@ -48,23 +48,21 @@ namespace ProyectoNomina
                 txtId.Text = t.Id_Turno.ToString();
                 txtHorarioEntrada.Text = t.Hora_Entrada;
                 txtHorarioSalida.Text = t.Hora_Salida;
-                txtObservacion.Text = t.Observaciones    ;
+                txtObservacion.Text = t.Observaciones;
 
-              
+
             }
         }
-
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-           Turno arte = new Turno();
-          
-            arte.Hora_Entrada = txtHorarioEntrada.Text;
-            arte.Hora_Salida = txtHorarioSalida.Text;
-            arte.Observaciones = txtObservacion.Text;
-           
+            Turno turno = new Turno();
 
-            //Guardamos el turno
-            datos.Turno.Add(arte);
+            turno.Hora_Entrada = txtHorarioEntrada.Text;
+            turno.Hora_Salida = txtHorarioSalida.Text;
+            turno.Observaciones = txtObservacion.Text;
+
+
+            datos.Turno.Add(turno);
             datos.SaveChanges();
             MessageBox.Show("Tus datos se han guardado correctamente!");
             CargarDatosGrilla();

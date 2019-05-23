@@ -17,10 +17,10 @@ namespace ProyectoNomina
     /// <summary>
     /// Lógica de interacción para Permiso.xaml
     /// </summary>
-    public partial class Permiso : Window
+    public partial class w_Permiso : Window
     {
         NominaEntities datos;
-        public Permiso()
+        public w_Permiso()
         {
             InitializeComponent();
             datos = new NominaEntities();
