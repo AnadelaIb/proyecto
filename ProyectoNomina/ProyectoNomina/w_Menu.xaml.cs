@@ -23,5 +23,39 @@ namespace ProyectoNomina
         {
             InitializeComponent();
         }
+
+        private void menuEmpleado_Click(object sender, RoutedEventArgs e)
+        {
+            w_Empleados  ventanaEmpleados = new w_Empleados();
+            ventanaEmpleados.ShowDialog();
+        }
+
+        private void MenuTurno_Click(object sender, RoutedEventArgs e)
+        {
+           
+
+        }
+
+        private void MenuConcepto_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void menuVacaciones_Click(object sender, RoutedEventArgs e)
+        {
+            w_vacaciones ventanaVacaciones = new w_vacaciones();
+            ventanaVacaciones.ShowDialog();
+
+        }
+
+        private void menuPermiso_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void menuAnticipo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
