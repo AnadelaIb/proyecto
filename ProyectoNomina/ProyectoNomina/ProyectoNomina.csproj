@@ -88,6 +88,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="w_Inicio.xaml.cs">
+      <DependentUpon>w_Inicio.xaml</DependentUpon>
+    </Compile>
     <Compile Include="w_Menu.xaml.cs">
       <DependentUpon>w_Menu.xaml</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="w_Inicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="w_Menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
