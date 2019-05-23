@@ -57,7 +57,8 @@ namespace ProyectoNomina
 
         private void menuAnticipo_Click(object sender, RoutedEventArgs e)
         {
-
+            w_AnticipoSalarial ventanaAnticipo = new w_AnticipoSalarial();
+            ventanaAnticipo.ShowDialog();
         }
     }
 }
