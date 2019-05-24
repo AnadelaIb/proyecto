@@ -39,7 +39,8 @@ namespace ProyectoNomina
 
         private void MenuConcepto_Click(object sender, RoutedEventArgs e)
         {
-
+            w_Concepto ventanaConcepto = new w_Concepto();
+            ventanaConcepto.ShowDialog();
         }
 
         private void menuVacaciones_Click(object sender, RoutedEventArgs e)

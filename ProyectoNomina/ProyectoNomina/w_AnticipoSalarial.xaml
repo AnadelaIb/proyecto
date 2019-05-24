@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="w_AnticipoSalarial" Height="500" Width="1000" Loaded="Window_Loaded">
-    <Grid>
+        Title="w_AnticipoSalarial" Height="450.292" Width="961.988" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,0,58">
         <GroupBox Header="Pedidos de Anticipo Salarial de los Empleados" Canvas.Left="10" Canvas.Top="256" Margin="8,10,0,25" HorizontalAlignment="Left" Width="929">
 
             <DataGrid Name="dgAntSalario" Margin="0,10,-2,0" Height="289" VerticalAlignment="Top" />
