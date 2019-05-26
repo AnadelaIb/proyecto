@@ -45,9 +45,13 @@ namespace ProyectoNomina
 
             datoconcepto.Descripcion = txtParame.Text;
 
-            datoconcepto.Tipo = txtTipo.Text;
+            if (rdbAdicionar.IsChecked == true)
+                datoconcepto.Tipo = "+";
+            else
+                datoconcepto.Tipo = "-";
 
-
+            
+            
             datos.Concepto.Add(datoconcepto);
             datos.SaveChanges();
             MessageBox.Show("Tus datos se guardaron correctamente!");
@@ -59,7 +63,7 @@ namespace ProyectoNomina
             txtId.Text = string.Empty;
             txtParame.Text = string.Empty;
 
-            txtTipo.Text = string.Empty;
+            rdbAdicionar.IsChecked = true;
 
 
         }
@@ -88,8 +92,10 @@ namespace ProyectoNomina
                 Concepto a = (Concepto)dgConcepto.SelectedItem;
 
                 a.Descripcion = txtParame.Text;
-                a.Tipo = txtTipo.Text;
-
+                if (rdbAdicionar.IsChecked == true)
+                    a.Tipo = "+";
+                else
+                    a.Tipo = "-";
 
 
 
@@ -110,7 +116,11 @@ namespace ProyectoNomina
 
                 txtId.Text = a.Id_Concepto.ToString();
                 txtParame.Text = a.Descripcion;
-                txtTipo.Text = a.Tipo;
+                
+                if (a.Tipo.Equals("+"))
+                    rdbAdicionar .IsChecked = true;
+                else
+                    rdbDescontar.IsChecked = true;
 
 
             }
