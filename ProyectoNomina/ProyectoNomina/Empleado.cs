@@ -33,7 +33,12 @@ namespace ProyectoNomina
         public Nullable<System.DateTime> Fecha_Incorporacion { get; set; }
         public string Imagen_Perfil { get; set; }
         public int Salario_Basico { get; set; }
-    
+
+        public override string ToString()
+        {
+            return this.Nombres;
+         }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Anticipo> Anticipo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
