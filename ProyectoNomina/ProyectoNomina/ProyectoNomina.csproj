@@ -88,6 +88,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="w_ABMPermiso.xaml.cs">
+      <DependentUpon>w_ABMPermiso.xaml</DependentUpon>
+    </Compile>
     <Compile Include="w_AnticipoSalarial.xaml.cs">
       <DependentUpon>w_AnticipoSalarial.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="w_ABMPermiso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="w_AnticipoSalarial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
