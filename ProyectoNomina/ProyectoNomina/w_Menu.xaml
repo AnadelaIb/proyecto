@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="Menu Principal" Height="300" Width="364.912" WindowState="Maximized">
+        Title="Menu Principal" Height="300" Width="569.758" WindowState="Maximized"  >
 
-    <Menu Name="MenuPrincipal">
+    <Menu Name="MenuPrincipal" Margin="0,0,2,0">
         <MenuItem Header="Registrar">
             <MenuItem Header="Empleado" Name="menuEmpleado" Click="menuEmpleado_Click" />
             <Separator />
             <MenuItem Header="Turno" Name="MenuTurno" Click="MenuTurno_Click"  />
             <Separator />
             <MenuItem Header="Concepto" Name="MenuConcepto" Click="MenuConcepto_Click"  />
-                        
+
         </MenuItem>
         <MenuItem Header="Visualizar">
             <MenuItem Header="Pedido de Vacaciones" Name="menuVacaciones" Click="menuVacaciones_Click"  />
@@ -23,6 +23,8 @@
             <Separator />
             <MenuItem Header="Anticipo Salarial" Name="menuAnticipo" Click="menuAnticipo_Click"  />
         </MenuItem>
+        <!--<Label x:Name="lblNombre" Content="Label" Width="141"/>-->
+        <Button x:Name="btnCerrar" Content="Cerrar Sesión" HorizontalAlignment="Right" Width="121" Click="btnCerrar_Click" Height="32"/>
     </Menu>
 
 

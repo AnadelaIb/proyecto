@@ -61,5 +61,20 @@ namespace ProyectoNomina
             w_AnticipoSalarial ventanaAnticipo = new w_AnticipoSalarial();
             ventanaAnticipo.ShowDialog();
         }
+
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            w_Menu mr = new w_Menu();
+
+            mr.Close();
+
+            w_Inicio lg = new w_Inicio();
+
+            lg.Show();
+
+            this.Close();
+        }
+
+     
     }
 }

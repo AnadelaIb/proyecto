@@ -34,12 +34,13 @@ namespace ProyectoNomina
         private void btnIniciar_Click(object sender, RoutedEventArgs e)
         {
             var b = 0;
-            var categorias = datos.Usuario.ToList();
-            foreach (var c in categorias)
+            var usuario = datos.Usuario.ToList();
+            foreach (var c in usuario)
             {
 
                 if (txtUsuario.Text.Equals(c.Usuario1) & txtPass.Password.Equals(c.Password))
                 {
+                 
                     w_Menu ventana = new w_Menu();
                     this.Close();
                     ventana.ShowDialog();
