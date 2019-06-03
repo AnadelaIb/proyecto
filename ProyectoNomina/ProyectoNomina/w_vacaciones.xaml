@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="Vacaciones" Height="392.982" Width="964.911" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="Vacaciones" Height="458.833" Width="964.911" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
 
-        <GroupBox Header="Pedidos de Vacaciones de los Empleados" Canvas.Left="10" Canvas.Top="256" Margin="8,10,0,25" HorizontalAlignment="Left" Width="929">
+        <GroupBox Header="Pedidos de Vacaciones de los Empleados" Canvas.Left="10" Canvas.Top="256" Margin="8,10,0,80" HorizontalAlignment="Left" Width="929">
 
-            <DataGrid Name="dgVacaciones" Margin="0,10,-2,0" Height="289" VerticalAlignment="Top" />
+            <DataGrid Name="dgVacaciones" Margin="0,10,-2,0" Height="266" VerticalAlignment="Top" />
         </GroupBox>
+        <Button x:Name="btnAprobar" Content="Aprobar" HorizontalAlignment="Left" Margin="291,362,0,0" VerticalAlignment="Top" Width="117" Height="47" Click="btnAprobar_Click" />
+        <Button x:Name="btnRechazar" Content="Rechazar" HorizontalAlignment="Left" Margin="480,362,0,0" VerticalAlignment="Top" Width="117" Height="47" Click="btnRechazar_Click" />
     </Grid>
 </Window>

@@ -43,5 +43,68 @@ namespace ProyectoNomina
         {
             CargarDatosGrilla();
         }
+
+        private void btnAprobar_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgVacaciones.SelectedItem != null)
+            {
+                Vacaciones a = (Vacaciones)dgVacaciones.SelectedItem;
+                if (a.Estado.Equals("Pendiente"))
+                {
+                    a.Estado = "Aprobado";
+
+                    datos.Entry(a).State = System.Data.Entity.EntityState.Modified;
+                    datos.SaveChanges();
+                    MessageBox.Show("Se ha rechazado la solicitud de vacaciones!");
+                    CargarDatosGrilla();
+                }
+                else
+                {
+                    if (a.Estado.Equals("Rechazado"))
+                    {
+                        MessageBox.Show("No puede rechazar una solicitud previamente rechazada!");
+                    }
+                    else {
+                        MessageBox.Show("La solicitud ya fue aprovada previamente!");
+                    }
+
+                }
+
+            }
+            else
+                MessageBox.Show("Debe seleccionar un item!");
+        }
+
+        private void btnRechazar_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgVacaciones.SelectedItem != null)
+            {
+                Vacaciones a = (Vacaciones)dgVacaciones.SelectedItem;
+                if (a.Estado.Equals("Pendiente"))
+                {
+                    a.Estado = "Rechazado";
+                   
+                    datos.Entry(a).State = System.Data.Entity.EntityState.Modified;
+                    datos.SaveChanges();
+                    MessageBox.Show("Se ha rechazado la solicitud de vacaciones!");
+                    CargarDatosGrilla();
+                }
+                else
+                {
+                    if (a.Estado.Equals("Aprobado"))
+                    {
+                        MessageBox.Show("No puede rechazar una solicitud previamente aprobada!");
+                    }
+                    else{
+                        MessageBox.Show("La solicitud ya fue rechazada previamente!");
+                    }
+
+                }
+    
+            }
+            else
+                MessageBox.Show("Debe seleccionar un item!");
+        }
     }
-}
+    }
+
