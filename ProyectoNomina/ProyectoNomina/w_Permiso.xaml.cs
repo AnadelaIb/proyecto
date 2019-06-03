@@ -44,5 +44,64 @@ namespace ProyectoNomina
         {
             CargarDatosGrilla();
         }
+
+        private void btnRechazar_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgPermisos.SelectedItem != null)
+            {
+                Permisos p = (Permisos)dgPermisos.SelectedItem;
+                if (p.Estado.Equals("Pendiente"))
+                {
+                    p.Estado = "Rechazado";
+                    datos.Entry(p).State = System.Data.Entity.EntityState.Modified;
+                    datos.SaveChanges();
+
+                    CargarDatosGrilla();
+                    MessageBox.Show("Se rechazó el permiso correctamente!");
+                }
+               
+                else if (p.Estado.Equals("Rechazado"))
+                {
+                    MessageBox.Show("El permiso ya está rechazado!");
+                }
+                else if (p.Estado.Equals("Aprobado"))
+                {
+                    MessageBox.Show("No se puede rechazar un permiso aprobado!");
+                }
+
+
+            }
+            else
+                MessageBox.Show("Debe elegir una solicitud de permiso de la grilla!");
+        }
+
+        private void btnAprobar_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgPermisos.SelectedItem != null)
+            {
+                Permisos p = (Permisos)dgPermisos.SelectedItem;
+                if (p.Estado.Equals("Pendiente"))
+                {
+                    p.Estado = "Aprobado";
+                    datos.Entry(p).State = System.Data.Entity.EntityState.Modified;
+                    datos.SaveChanges();
+
+                    CargarDatosGrilla();
+                    MessageBox.Show("Se aprobó el permiso correctamente!");
+                }
+                else if (p.Estado.Equals("Rechazado"))
+                {
+                    MessageBox.Show("No se puede aprobar un permiso que ya está rechazado!");
+                }
+                else if (p.Estado.Equals("Aprobado"))
+                {
+                    MessageBox.Show("El permiso ya está aprobado!");
+                }
+
+
+            }
+            else
+                MessageBox.Show("Debe elegir una solicitud de permiso de la grilla!");
+        }
     }
 }
