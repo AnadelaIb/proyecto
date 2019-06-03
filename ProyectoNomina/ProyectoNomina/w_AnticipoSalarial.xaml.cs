@@ -44,5 +44,67 @@ namespace ProyectoNomina
         {
             CargarDatosGrilla();
         }
+
+        private void btnAprobar_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgAntSalario.SelectedItem != null)
+            {
+                Anticipo a = (Anticipo)dgAntSalario.SelectedItem;
+                if (a.Estado.Equals("Pendiente"))
+                {
+                    a.Estado = "Aprobado";
+                    datos.Entry(a).State = System.Data.Entity.EntityState.Modified;
+                    datos.SaveChanges();
+
+                    CargarDatosGrilla();
+                    MessageBox.Show("Se aprobó el anticipo correctamente!");
+                }
+                else if (a.Estado.Equals("Rechazado"))
+                {
+                    MessageBox.Show("No se puede aprobar un anticipo que ya está rechazado!");
+                }
+                else if (a.Estado.Equals("Aprobado"))
+                {
+                    MessageBox.Show("El anticipo ya está aprobado!");
+                }
+
+
+            }
+            else
+                MessageBox.Show("Debe elegir una solicitud de anticipo de la grilla!");
+
+
+            
+        }
+
+        private void btnRechazar_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgAntSalario.SelectedItem != null)
+            {
+                Anticipo a = (Anticipo)dgAntSalario.SelectedItem;
+                if (a.Estado.Equals("Pendiente"))
+                {
+                    a.Estado = "Rechazado";
+                    datos.Entry(a).State = System.Data.Entity.EntityState.Modified;
+                    datos.SaveChanges();
+
+                    CargarDatosGrilla();
+                    MessageBox.Show("Se rechazó el anticipo correctamente!");
+                }
+
+                else if (a.Estado.Equals("Rechazado"))
+                {
+                    MessageBox.Show("El anticipo ya está rechazado!");
+                }
+                else if (a.Estado.Equals("Aprobado"))
+                {
+                    MessageBox.Show("No se puede rechazar un anticipo aprobado!");
+                }
+
+
+            }
+            else
+                MessageBox.Show("Debe elegir una solicitud de anticipo de la grilla!");
+        }
     }
 }

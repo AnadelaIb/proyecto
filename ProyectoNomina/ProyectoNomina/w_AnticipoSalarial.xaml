@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="w_AnticipoSalarial" Height="400.584" Width="961.988" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
-    <Grid Margin="0,0,0,58">
-        <GroupBox Header="Pedidos de Anticipo Salarial de los Empleados" Canvas.Left="10" Canvas.Top="256" Margin="8,10,0,-45" HorizontalAlignment="Left" Width="929">
+        Title="w_AnticipoSalarial" Height="506.685" Width="961.988" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Canvas>
+        <GroupBox Header="Pedidos de Anticipo Salarial de los Empleados" Canvas.Left="10" Canvas.Top="28" HorizontalAlignment="Left" Width="929">
 
             <DataGrid Name="dgAntSalario" Margin="0,10,-2,0" Height="301" VerticalAlignment="Top" />
         </GroupBox>
-    </Grid>
+        <Button x:Name="btnAprobar" Content="Aprobar" Canvas.Left="338" Canvas.Top="398" Width="101" Height="39" Click="btnAprobar_Click" />
+        <Button x:Name="btnRechazar" Content="Rechazar" Canvas.Left="507" Canvas.Top="398" Width="101" Height="39" Click="btnRechazar_Click" />
+    </Canvas>
 </Window>
