@@ -48,24 +48,24 @@ namespace ProyectoNomina
         {
             if (dgVacaciones.SelectedItem != null)
             {
-                Vacaciones a = (Vacaciones)dgVacaciones.SelectedItem;
-                if (a.Estado.Equals("Pendiente"))
+                Vacaciones v = (Vacaciones)dgVacaciones.SelectedItem;
+                if (v.Estado.Equals("Pendiente"))
                 {
-                    a.Estado = "Aprobado";
+                    v.Estado = "Aprobado";
 
-                    datos.Entry(a).State = System.Data.Entity.EntityState.Modified;
+                    datos.Entry(v).State = System.Data.Entity.EntityState.Modified;
                     datos.SaveChanges();
-                    MessageBox.Show("Se ha rechazado la solicitud de vacaciones!");
+                    MessageBox.Show("Se ha aprobado la solicitud de vacaciones!");
                     CargarDatosGrilla();
                 }
                 else
                 {
-                    if (a.Estado.Equals("Rechazado"))
+                    if (v.Estado.Equals("Rechazado"))
                     {
-                        MessageBox.Show("No puede rechazar una solicitud previamente rechazada!");
+                        MessageBox.Show("No puede aprobar una solicitud previamente rechazada!");
                     }
                     else {
-                        MessageBox.Show("La solicitud ya fue aprovada previamente!");
+                        MessageBox.Show("La solicitud ya fue aprobada previamente!");
                     }
 
                 }

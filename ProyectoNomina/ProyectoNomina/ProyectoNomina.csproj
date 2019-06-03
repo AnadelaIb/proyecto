@@ -88,6 +88,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Vacaciones.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="w_ABMPermiso.xaml.cs">
       <DependentUpon>w_ABMPermiso.xaml</DependentUpon>
     </Compile>
@@ -116,9 +119,6 @@
       <DependentUpon>w_Empleados.xaml</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vacaciones.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="w_Turnos.xaml.cs">

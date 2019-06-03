@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="NominaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="NominaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Anticipo">
           <Key>
             <PropertyRef Name="Id_Anticipo" />
@@ -73,17 +73,9 @@
           <Property Name="Password" Type="varchar" MaxLength="1000" Nullable="false" />
           <Property Name="Empleado_Id" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vacaciones">
           <Key>
             <PropertyRef Name="Id_Vacaciones" />
-            <PropertyRef Name="Empleado_Id" />
-            <PropertyRef Name="Fecha_Desde" />
-            <PropertyRef Name="Fecha_Hasta" />
-            <PropertyRef Name="Fecha_Solicitud" />
-            <PropertyRef Name="Estado" />
-            <PropertyRef Name="Fecha_Definicion" />
           </Key>
           <Property Name="Id_Vacaciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Empleado_Id" Type="int" Nullable="false" />
@@ -149,18 +141,7 @@ advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida nin
           <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Vacaciones" EntityType="Self.Vacaciones" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Vacaciones].[Id_Vacaciones] AS [Id_Vacaciones], 
-    [Vacaciones].[Empleado_Id] AS [Empleado_Id], 
-    [Vacaciones].[Fecha_Desde] AS [Fecha_Desde], 
-    [Vacaciones].[Fecha_Hasta] AS [Fecha_Hasta], 
-    [Vacaciones].[Fecha_Solicitud] AS [Fecha_Solicitud], 
-    [Vacaciones].[Estado] AS [Estado], 
-    [Vacaciones].[Fecha_Definicion] AS [Fecha_Definicion], 
-    [Vacaciones].[Observaciones] AS [Observaciones]
-    FROM [dbo].[Vacaciones] AS [Vacaciones]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Vacaciones" EntityType="Self.Vacaciones" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Anticipo_Empleado" Association="Self.FK_Anticipo_Empleado">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Anticipo" EntitySet="Anticipo" />
@@ -178,8 +159,7 @@ advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida nin
             <End Role="Vacaciones" EntitySet="Vacaciones" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NominaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -222,7 +202,7 @@ advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida nin
           <NavigationProperty Name="Anticipo" Relationship="Self.FK_Anticipo_Empleado" FromRole="Empleado" ToRole="Anticipo" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK_Empleado_Usuario" FromRole="Empleado" ToRole="Usuario" />
           <NavigationProperty Name="Permisos" Relationship="Self.FK_Permisos_Empleado" FromRole="Empleado" ToRole="Permisos" />
-          <NavigationProperty Name="Vacaciones" Relationship="Self.FK_Vacaciones_Empleado" FromRole="Empleado" ToRole="Vacaciones" />
+          <NavigationProperty Name="Vacaciones" Relationship="NominaModel.FK_Vacaciones_Empleado" FromRole="Empleado" ToRole="Vacaciones" />
         </EntityType>
         <EntityType Name="Permisos">
           <Key>
@@ -257,26 +237,6 @@ advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida nin
           <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Empleado_Id" Type="Int32" />
           <NavigationProperty Name="Empleado" Relationship="Self.FK_Empleado_Usuario" FromRole="Usuario" ToRole="Empleado" />
-        </EntityType>
-        <EntityType Name="Vacaciones">
-          <Key>
-            <PropertyRef Name="Id_Vacaciones" />
-            <PropertyRef Name="Empleado_Id" />
-            <PropertyRef Name="Fecha_Desde" />
-            <PropertyRef Name="Fecha_Hasta" />
-            <PropertyRef Name="Fecha_Solicitud" />
-            <PropertyRef Name="Estado" />
-            <PropertyRef Name="Fecha_Definicion" />
-          </Key>
-          <Property Name="Id_Vacaciones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Empleado_Id" Type="Int32" Nullable="false" />
-          <Property Name="Fecha_Desde" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Fecha_Hasta" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Fecha_Solicitud" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Fecha_Definicion" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Observaciones" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK_Vacaciones_Empleado" FromRole="Vacaciones" ToRole="Empleado" />
         </EntityType>
         <Association Name="FK_Anticipo_Empleado">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
@@ -314,18 +274,6 @@ advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida nin
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Vacaciones_Empleado">
-          <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
-          <End Role="Vacaciones" Type="Self.Vacaciones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Empleado">
-              <PropertyRef Name="Id_Empleado" />
-            </Principal>
-            <Dependent Role="Vacaciones">
-              <PropertyRef Name="Empleado_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="NominaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Anticipo" EntityType="Self.Anticipo" />
           <EntitySet Name="Concepto" EntityType="Self.Concepto" />
@@ -333,7 +281,6 @@ advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida nin
           <EntitySet Name="Permisos" EntityType="Self.Permisos" />
           <EntitySet Name="Turno" EntityType="Self.Turno" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
-          <EntitySet Name="Vacaciones" EntityType="Self.Vacaciones" />
           <AssociationSet Name="FK_Anticipo_Empleado" Association="Self.FK_Anticipo_Empleado">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Anticipo" EntitySet="Anticipo" />
@@ -346,11 +293,38 @@ advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida nin
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Permisos" EntitySet="Permisos" />
           </AssociationSet>
-          <AssociationSet Name="FK_Vacaciones_Empleado" Association="Self.FK_Vacaciones_Empleado">
+          <EntitySet Name="Vacaciones" EntityType="NominaModel.Vacaciones" />
+          <AssociationSet Name="FK_Vacaciones_Empleado" Association="NominaModel.FK_Vacaciones_Empleado">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Vacaciones" EntitySet="Vacaciones" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Vacaciones">
+          <Key>
+            <PropertyRef Name="Id_Vacaciones" />
+          </Key>
+          <Property Name="Id_Vacaciones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Empleado_Id" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Desde" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Fecha_Hasta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Fecha_Solicitud" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Definicion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Observaciones" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleado" Relationship="NominaModel.FK_Vacaciones_Empleado" FromRole="Vacaciones" ToRole="Empleado" />
+        </EntityType>
+        <Association Name="FK_Vacaciones_Empleado">
+          <End Type="NominaModel.Empleado" Role="Empleado" Multiplicity="1" />
+          <End Type="NominaModel.Vacaciones" Role="Vacaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="Id_Empleado" />
+            </Principal>
+            <Dependent Role="Vacaciones">
+              <PropertyRef Name="Empleado_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -434,14 +408,14 @@ advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida nin
           <EntitySetMapping Name="Vacaciones">
             <EntityTypeMapping TypeName="NominaModel.Vacaciones">
               <MappingFragment StoreEntitySet="Vacaciones">
-                <ScalarProperty Name="Id_Vacaciones" ColumnName="Id_Vacaciones" />
-                <ScalarProperty Name="Empleado_Id" ColumnName="Empleado_Id" />
-                <ScalarProperty Name="Fecha_Desde" ColumnName="Fecha_Desde" />
-                <ScalarProperty Name="Fecha_Hasta" ColumnName="Fecha_Hasta" />
-                <ScalarProperty Name="Fecha_Solicitud" ColumnName="Fecha_Solicitud" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Fecha_Definicion" ColumnName="Fecha_Definicion" />
                 <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Fecha_Definicion" ColumnName="Fecha_Definicion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fecha_Solicitud" ColumnName="Fecha_Solicitud" />
+                <ScalarProperty Name="Fecha_Hasta" ColumnName="Fecha_Hasta" />
+                <ScalarProperty Name="Fecha_Desde" ColumnName="Fecha_Desde" />
+                <ScalarProperty Name="Empleado_Id" ColumnName="Empleado_Id" />
+                <ScalarProperty Name="Id_Vacaciones" ColumnName="Id_Vacaciones" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
