@@ -75,6 +75,10 @@ namespace ProyectoNomina
             this.Close();
         }
 
-     
+        private void AsignarTurno_Click(object sender, RoutedEventArgs e)
+        {
+            w_AsignarTurno ventanaAsignarTurno = new w_AsignarTurno();
+            ventanaAsignarTurno.ShowDialog();
+        }
     }
 }

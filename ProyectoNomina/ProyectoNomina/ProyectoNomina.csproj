@@ -97,6 +97,9 @@
     <Compile Include="w_AnticipoSalarial.xaml.cs">
       <DependentUpon>w_AnticipoSalarial.xaml</DependentUpon>
     </Compile>
+    <Compile Include="w_AsignarTurno.xaml.cs">
+      <DependentUpon>w_AsignarTurno.xaml</DependentUpon>
+    </Compile>
     <Compile Include="w_Concepto.xaml.cs">
       <DependentUpon>w_Concepto.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="w_AnticipoSalarial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="w_AsignarTurno.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

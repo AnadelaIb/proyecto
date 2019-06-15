@@ -66,6 +66,7 @@ namespace ProyectoNomina
             datos.SaveChanges();
             MessageBox.Show("Tus datos se han guardado correctamente!");
             CargarDatosGrilla();
+            
 
         }
 

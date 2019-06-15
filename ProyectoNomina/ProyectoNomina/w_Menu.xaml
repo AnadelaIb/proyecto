@@ -11,10 +11,13 @@
         <MenuItem Header="Registrar">
             <MenuItem Header="Empleado" Name="menuEmpleado" Click="menuEmpleado_Click" />
             <Separator />
-            <MenuItem Header="Turno" Name="MenuTurno" Click="MenuTurno_Click"  />
+            <MenuItem Header="Turno">
+                <MenuItem Name="MenuTurno" Header="Cargar Turno" Click="MenuTurno_Click"></MenuItem>
+                <Separator />
+                <MenuItem Header="Asignar Turno Empleado" Name="AsignarTurno" Click="AsignarTurno_Click"></MenuItem>
+            </MenuItem>
             <Separator />
             <MenuItem Header="Concepto" Name="MenuConcepto" Click="MenuConcepto_Click"  />
-
         </MenuItem>
         <MenuItem Header="Visualizar">
             <MenuItem Header="Pedido de Vacaciones" Name="menuVacaciones" Click="menuVacaciones_Click"  />

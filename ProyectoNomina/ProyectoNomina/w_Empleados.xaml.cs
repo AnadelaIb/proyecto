@@ -164,8 +164,7 @@ namespace ProyectoNomina
 
         private void dgEmpleados_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (dgEmpleados.SelectedItem != null)
-            {
+
                 Empleado a = (Empleado)dgEmpleados.SelectedItem;
 
                 
@@ -183,7 +182,7 @@ namespace ProyectoNomina
                 dpFechaNac.Text = a.Fecha_Nacimiento.ToString();
                 dpFechIngreso.Text = a.Fecha_Incorporacion.ToString();
 
-          }
+          
         }
     }
 }
