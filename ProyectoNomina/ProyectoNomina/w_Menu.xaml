@@ -5,30 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="Menu Principal" Height="300" Width="569.758" WindowState="Maximized"  >
+        Title="Menu Principal" Height="300" Width="569.758" WindowState="Maximized" Icon="Resources/JOB_VECTOR.png" WindowStyle="ThreeDBorderWindow">
+    <Window.Background >
 
-    <Menu Name="MenuPrincipal" Margin="0,0,2,0">
-        <MenuItem Header="Registrar">
-            <MenuItem Header="Empleado" Name="menuEmpleado" Click="menuEmpleado_Click" />
-            <Separator />
-            <MenuItem Header="Turno">
-                <MenuItem Name="MenuTurno" Header="Cargar Turno" Click="MenuTurno_Click"></MenuItem>
+        <ImageBrush ImageSource="Resources/ImgMenu.jpg"/>
+
+    </Window.Background >
+    <Canvas Margin="0,0,0,0">
+        <Menu x:Name="MenuPrincipal">
+            <MenuItem Header="Registrar"  HorizontalAlignment="Left" Margin="0,0,0,0"  >
+                <MenuItem Header="Empleado"  x:Name="menuEmpleado" Click="menuEmpleado_Click" />
                 <Separator />
-                <MenuItem Header="Asignar Turno Empleado" Name="AsignarTurno" Click="AsignarTurno_Click"></MenuItem>
+                <MenuItem Header="Turno">
+                    <MenuItem x:Name="MenuTurno" Header="Cargar Turno" Click="MenuTurno_Click"/>
+                    <Separator />
+                    <MenuItem Header="Asignar Turno Empleado" x:Name="AsignarTurno" Click="AsignarTurno_Click"/>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Concepto" x:Name="MenuConcepto" Click="MenuConcepto_Click"  />
             </MenuItem>
-            <Separator />
-            <MenuItem Header="Concepto" Name="MenuConcepto" Click="MenuConcepto_Click"  />
-        </MenuItem>
-        <MenuItem Header="Visualizar">
-            <MenuItem Header="Pedido de Vacaciones" Name="menuVacaciones" Click="menuVacaciones_Click"  />
-            <Separator />
-            <MenuItem Header="Solicitud de Permiso" Name="menuPermiso" Click="menuPermiso_Click"  />
-            <Separator />
-            <MenuItem Header="Anticipo Salarial" Name="menuAnticipo" Click="menuAnticipo_Click"  />
-        </MenuItem>
-        <!--<Label x:Name="lblNombre" Content="Label" Width="141"/>-->
-        <Button x:Name="btnCerrar" Content="Cerrar Sesión" HorizontalAlignment="Right" Width="121" Click="btnCerrar_Click" Height="32"/>
-    </Menu>
-
-
+            <MenuItem Header="Visualizar" Height="41" >
+                <MenuItem Header="Pedido de Vacaciones" x:Name="menuVacaciones" Click="menuVacaciones_Click"  />
+                <Separator />
+                <MenuItem Header="Solicitud de Permiso" x:Name="menuPermiso" Click="menuPermiso_Click"  />
+                <Separator />
+                <MenuItem Header="Anticipo Salarial" x:Name="menuAnticipo" Click="menuAnticipo_Click"  />
+            </MenuItem>
+            <Button x:Name="btnCerrar" Content="Cerrar Sesión" HorizontalAlignment="Right" Width="132" Click="btnCerrar_Click" Height="43"/>
+        </Menu>
+    </Canvas>
 </Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="w_Turnos" Height="600" Width="500" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="w_Turnos" Height="600" Width="500" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="Resources/JOB_VECTOR.png">
     <Window.Resources>
         <Color x:Key="Color1">#FF7E119E</Color>
     </Window.Resources>

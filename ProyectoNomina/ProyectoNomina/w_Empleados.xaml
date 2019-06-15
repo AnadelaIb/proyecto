@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="w_Empleados" Height="700" Width="714.474" Loaded="Window_Loaded"  WindowStartupLocation="CenterScreen" >
+        Title="w_Empleados" Height="700" Width="714.474" Loaded="Window_Loaded"  WindowStartupLocation="CenterScreen" Icon="Resources/JOB_VECTOR.png" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="341*"/>

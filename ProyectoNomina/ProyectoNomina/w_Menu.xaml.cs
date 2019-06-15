@@ -22,6 +22,7 @@ namespace ProyectoNomina
         public w_Menu()
         {
             InitializeComponent();
+           
         }
 
         private void menuEmpleado_Click(object sender, RoutedEventArgs e)

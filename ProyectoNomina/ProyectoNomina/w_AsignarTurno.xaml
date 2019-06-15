@@ -5,32 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="w_AsignarTurno" Height="627.634" Width="1098.617" Loaded="Window_Loaded">
+        Title="w_AsignarTurno" Height="581.634" Width="1090.617" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Icon="Resources/JOB_VECTOR.png">
     <Grid Margin="0,0,2,-2">
-        <Grid.ColumnDefinitions>
-
-
-        </Grid.ColumnDefinitions>
         <DataGrid x:Name="dgEmpleadoT" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectedCellsChanged="dgEmpleadoT_SelectedCellsChanged_1" HorizontalAlignment="Left" Margin="581,20,0,0" VerticalAlignment="Top" Height="183" Width="481"/>
-        <Label x:Name="label" Content="Empleado:" HorizontalAlignment="Left" Margin="46,20,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtEmpleadoNombre" HorizontalAlignment="Left" Height="23" Margin="128,24,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="370" RenderTransformOrigin="0.5,0.5">
+        <Label x:Name="label" Content="Empleado:" HorizontalAlignment="Left" Margin="42,20,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtEmpleadoNombre" HorizontalAlignment="Left" Height="23" Margin="117,24,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="393" RenderTransformOrigin="0.5,0.5">
 
         </TextBox>
-        <Label x:Name="label1" Content="Nro. Documento:" HorizontalAlignment="Left" Margin="13,66,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNroDocumento" HorizontalAlignment="Left" Height="23" Margin="131,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130"/>
-        <Button x:Name="btnAsignar" Content="Asignar Turno" HorizontalAlignment="Left" Margin="315,462,0,0" VerticalAlignment="Top" Width="142" Height="44"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" Click="btnCancelar_Click" HorizontalAlignment="Left" Margin="769,462,0,0" VerticalAlignment="Top" Width="125" Height="44"/>
-        <Label x:Name="label2" Content="Elegir Turno:" HorizontalAlignment="Left" Margin="43,244,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label3" Content="Horario Turno:" HorizontalAlignment="Left" Margin="646,245,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtTurnoInicio" HorizontalAlignment="Left" Height="23" Margin="653,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
-        <Label x:Name="label4" Content="-" HorizontalAlignment="Left" Margin="799,277,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtTurnoFin" HorizontalAlignment="Left" Height="23" Margin="841,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <DataGrid x:Name="dgTurno" SelectedCellsChanged="dgTurno_SelectedCellsChanged" HorizontalAlignment="Left" Margin="124,244,0,0" VerticalAlignment="Top" Height="159" Width="374"/>
-        <Label x:Name="label5" Content="Observaciones:" HorizontalAlignment="Left" Margin="653,327,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtObservaciones" HorizontalAlignment="Left" Height="23" Margin="653,371,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="298"/>
-        <Label x:Name="label6" Content="Imagen:" HorizontalAlignment="Left" Margin="46,121,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Nro. Documento:" HorizontalAlignment="Left" Margin="9,66,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNroDocumento" HorizontalAlignment="Left" Height="23" Margin="118,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+        <Button x:Name="btnAsignar" Content="Asignar Turno" HorizontalAlignment="Left" Margin="224,468,0,0" VerticalAlignment="Top" Width="142" Height="44"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" Click="btnCancelar_Click" HorizontalAlignment="Left" Margin="748,468,0,0" VerticalAlignment="Top" Width="126" Height="44"/>
+        <Label x:Name="label2" Content="Elegir Turno:" HorizontalAlignment="Left" Margin="31,244,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Horario Turno:" HorizontalAlignment="Left" Margin="660,246,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTurnoInicio" HorizontalAlignment="Left" Height="23" Margin="666,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122"/>
+        <Label x:Name="label4" Content="-" HorizontalAlignment="Left" Margin="815,277,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTurnoFin" HorizontalAlignment="Left" Height="23" Margin="855,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="dgTurno" SelectedCellsChanged="dgTurno_SelectedCellsChanged" HorizontalAlignment="Left" Margin="113,244,0,0" VerticalAlignment="Top" Height="178" Width="397"/>
+        <Label x:Name="label5" Content="Observaciones:" HorizontalAlignment="Left" Margin="664,327,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtObservaciones" HorizontalAlignment="Left" Height="23" Margin="666,371,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="308"/>
+        <Label x:Name="label6" Content="Imagen:" HorizontalAlignment="Left" Margin="57,121,0,0" VerticalAlignment="Top"/>
         <Image x:Name="ImgEmpleado" HorizontalAlignment="Left" Height="100" Margin="131,121,0,0" VerticalAlignment="Top" Width="130"/>
-        <Button x:Name="btnLlamaTurno" Content="+" Click="btnLlamaTurno_Click"  HorizontalAlignment="Left" Margin="510,245,0,0" VerticalAlignment="Top" Width="52" Height="41"/>
-        <Button x:Name="btnRecargar" Content="F5" Click="btnRecargar_Click" HorizontalAlignment="Left" Margin="510,302,0,0" VerticalAlignment="Top" Width="52" Height="41"/>
+        <Button x:Name="btnLlamaTurno" Content="+" Click="btnLlamaTurno_Click"  HorizontalAlignment="Left" Margin="524,245,0,0" VerticalAlignment="Top" Width="52" Height="41"/>
+        <Button x:Name="btnRecargar" Content="F5" Click="btnRecargar_Click" HorizontalAlignment="Left" Margin="524,302,0,0" VerticalAlignment="Top" Width="52" Height="41"/>
     </Grid>
 </Window>

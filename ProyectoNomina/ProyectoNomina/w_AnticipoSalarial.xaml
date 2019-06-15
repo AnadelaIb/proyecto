@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="w_AnticipoSalarial" Height="506.685" Width="961.988" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Title="w_AnticipoSalarial" Height="506.685" Width="961.988" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Icon="Resources/JOB_VECTOR.png">
     <Canvas>
         <GroupBox Header="Pedidos de Anticipo Salarial de los Empleados" Canvas.Left="10" Canvas.Top="28" HorizontalAlignment="Left" Width="929">
 

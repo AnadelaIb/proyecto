@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="w_ABMPermiso" Height="588.105" Width="660.792">
+        Title="w_ABMPermiso" Height="588.105" Width="660.792" Icon="Resources/JOB_VECTOR.png">
 
     <Grid Margin="0,0,2,16">
         <Grid Margin="10,0,2,134">

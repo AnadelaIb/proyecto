@@ -79,7 +79,7 @@ namespace ProyectoNomina
                 if(dgEmpleadoT.SelectedItem != null) { 
 
                     Empleado a = (Empleado)dgEmpleadoT.SelectedItem;
-                    txtEmpleadoNombre.Text = a.Nombres;
+                    txtEmpleadoNombre.Text = a.Nombres+" "+a.Apellidos;
                     txtNroDocumento.Text = a.Nro_Documento;
                     String stringPath = a.Imagen_Perfil;
                     Uri imageUri = new Uri(stringPath);

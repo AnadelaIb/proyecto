@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="w_Concepto" Height="700" Width="500" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="w_Concepto" Height="700" Width="500" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="Resources/JOB_VECTOR.png">
     <Canvas Margin="0,0,-21,-228">
         <GroupBox Header="Datos del Concepto" Canvas.Left="10" Canvas.Top="10" Height="236" Width="466">
             <Grid Height="128" Width="360" Margin="0,30,0,26">
