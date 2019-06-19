@@ -14,7 +14,7 @@
         </TextBox>
         <Label x:Name="label1" Content="Nro. Documento:" HorizontalAlignment="Left" Margin="9,66,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtNroDocumento" HorizontalAlignment="Left" Height="23" Margin="118,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
-        <Button x:Name="btnAsignar" Content="Asignar Turno" HorizontalAlignment="Left" Margin="224,468,0,0" VerticalAlignment="Top" Width="142" Height="44"/>
+        <Button x:Name="btnAsignar" Content="Asignar Turno" HorizontalAlignment="Left" Margin="224,468,0,0" VerticalAlignment="Top" Width="142" Height="44" Click="btnAsignar_Click"/>
         <Button x:Name="btnCancelar" Content="Cancelar" Click="btnCancelar_Click" HorizontalAlignment="Left" Margin="748,468,0,0" VerticalAlignment="Top" Width="126" Height="44"/>
         <Label x:Name="label2" Content="Elegir Turno:" HorizontalAlignment="Left" Margin="31,244,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label3" Content="Horario Turno:" HorizontalAlignment="Left" Margin="660,246,0,0" VerticalAlignment="Top"/>

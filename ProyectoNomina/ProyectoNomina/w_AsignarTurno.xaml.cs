@@ -113,5 +113,14 @@ namespace ProyectoNomina
         {
             CargarDatosGrilla();
         }
+
+        private void btnAsignar_Click(object sender, RoutedEventArgs e)
+
+        {
+
+           
+
+
+        }
     }
 }

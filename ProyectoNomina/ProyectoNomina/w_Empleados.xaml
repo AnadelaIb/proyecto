@@ -5,67 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="w_Empleados" Height="700" Width="714.474" Loaded="Window_Loaded"  WindowStartupLocation="CenterScreen" Icon="Resources/JOB_VECTOR.png" >
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="341*"/>
-            <ColumnDefinition Width="365*"/>
-        </Grid.ColumnDefinitions>
-        <GroupBox Header="Registro de Empleados" Margin="32,10,30,354" Grid.ColumnSpan="2">
-            <Grid Margin="0,10,0,-22">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" Content="Nombres:" HorizontalAlignment="Right" Margin="0 0 5 0" Width="62"/>
-                <Label Grid.Column="0" Grid.Row="1" Content="Apellidos:" HorizontalAlignment="Right" Margin="0 0 5 0" Width="62"/>
-                <Label Grid.Column="0" Grid.Row="2" Content="Nro. Documento: " HorizontalAlignment="Right" Margin="0 0 5 0" Width="104"/>
-                <Label Grid.Column="0" Grid.Row="3" Content="Fecha Nacimiento:" HorizontalAlignment="Right" Margin="0,0,5,5" Width="107"/>
-                <Label Grid.Column="0" Grid.Row="4" Content="Dirección" Margin="55,0,5,0"/>
-                <Label Grid.Column="0" Grid.Row="5" Content="Nro. Teléfono:" HorizontalAlignment="Right" Margin="0 0 5 0" Width="84"/>
-                <Label Grid.Column="0" Grid.Row="6" Content="Fecha Ingreso:" HorizontalAlignment="Right" Margin="0,0,5,1" Width="86"/>
-                <Label Grid.Column="0" Grid.Row="7" Content="Salario Básico:" HorizontalAlignment="Right" Margin="0 0 5 0" Width="85"/>
+        Title="w_Empleados" Height="710.496" Width="751.836" Loaded="Window_Loaded"  WindowStartupLocation="CenterScreen" Icon="Resources/JOB_VECTOR.png" >
+    <Canvas Margin="0,24,2,0" Height="665" VerticalAlignment="Top">
 
-                <TextBox Grid.Column="1" Grid.Row="0" x:Name="txtNombre"  Margin="10,1,10,0"/>
-                <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtApellido" Margin="10,0"/>
-                <TextBox Grid.Column="1" Grid.Row="2" x:Name="txtDocumento"  Margin="10,0"/>
-                <DatePicker Grid.Column="1" Grid.Row="2" Name="dpFechaNac" Margin="10,30,10,4" Grid.RowSpan="2"  />
-                <TextBox Grid.Column="1" Grid.Row="4" x:Name="txtDireccion"  Margin="10,2,10,3"/>
-                <TextBox Grid.Column="1" Grid.Row="5" x:Name="txtNroTelefono" Margin="8,0,12,6"/>
-                <DatePicker Grid.Column="1" Grid.Row="6" Name="dpFechIngreso" Margin="8,1,14,5"   />
-                <TextBox Grid.Column="1" Grid.Row="7" x:Name="txtSalarioBasico"  Margin="8,0,12,0"/>
+        <GroupBox Header="Registro de Empleados" Grid.ColumnSpan="2" Grid.Column="1" Canvas.Left="13" Width="715" Height="390" Canvas.Top="-22">
+            <Canvas>
 
 
-                <Button x:Name="btnImagen" Grid.Column="2" Grid.Row="5" Content="Seleccionar" Height="Auto" Click="btnImagen_Click" Margin="72,0,45,0"/>
+                <Label Grid.Column="0" Grid.Row="0" Content="Nombres:" HorizontalAlignment="Right" Width="62" Canvas.Left="105"/>
+                <Label Grid.Column="0" Grid.Row="1" Content="Apellidos:" HorizontalAlignment="Right" Width="62" Canvas.Left="105" Canvas.Top="26"/>
+                <Label Grid.Column="0" Grid.Row="2" Content="Nro. Documento: " HorizontalAlignment="Right" Width="104" Canvas.Left="63" Canvas.Top="90"/>
+                <Label Grid.Column="0" Grid.Row="3" Content="Fecha Nacimiento:" HorizontalAlignment="Right" Width="107" Canvas.Left="60" Canvas.Top="116"/>
+                <Label Grid.Column="0" Grid.Row="4" Content="Dirección" Canvas.Left="107" Canvas.Top="57"/>
+                <Label Grid.Column="0" Grid.Row="5" Content="Nro. Teléfono:" HorizontalAlignment="Right" Width="84" Canvas.Left="83" Canvas.Top="143"/>
+                <Label Grid.Column="0" Grid.Row="6" Content="Fecha Ingreso:" HorizontalAlignment="Right" Width="86" Canvas.Left="81" Canvas.Top="169"/>
+                <Label Grid.Column="0" Grid.Row="7" Content="Salario Básico:" HorizontalAlignment="Right" Width="85" Canvas.Left="81" Canvas.Top="201"/>
+                <Label Grid.Column="0" Grid.Row="8" Content="Turno:" HorizontalAlignment="Right" Width="85" Canvas.Left="83" Canvas.Top="232"/>
+                <TextBox Grid.Column="1" Grid.Row="0" x:Name="txtNombre" Canvas.Left="287" Width="135" Canvas.Top="1"/>
+                <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtApellido" Canvas.Left="287" Width="135" Canvas.Top="30"/>
+                <TextBox Grid.Column="1" Grid.Row="2" x:Name="txtDocumento" Canvas.Left="287" Width="135" Canvas.Top="90"/>
+                <DatePicker Grid.Column="1" Grid.Row="2" Name="dpFechaNac" Grid.RowSpan="2" Canvas.Left="287" Canvas.Top="120" Width="135"  />
+                <TextBox Grid.Column="1" Grid.Row="4" x:Name="txtDireccion" Canvas.Left="287" Canvas.Top="60" Width="135"/>
+                <TextBox Grid.Column="1" Grid.Row="5" x:Name="txtNroTelefono" Canvas.Left="287" Width="135" Canvas.Top="145" RenderTransformOrigin="0.489,2.003"/>
+                <DatePicker Grid.Column="1" Grid.Row="6" Name="dpFechIngreso" Canvas.Left="287" Canvas.Top="169" RenderTransformOrigin="1.12,0.56" Width="135"   />
+                <TextBox Grid.Column="1" Grid.Row="7" x:Name="txtSalarioBasico" Canvas.Left="287" Width="135" Canvas.Top="201"/>
+                <ComboBox Grid.Column="1" Grid.Row="8" x:Name="cboTurno" Canvas.Left="287" Canvas.Top="247" Width="135"/>
 
-                <GroupBox Grid.Column="2" Grid.Row="0" Grid.RowSpan="4" Header="Imagen" Canvas.Left="352" Canvas.Top="59" Margin="72,0,45,2">
+                <Button x:Name="btnImagen" Grid.Column="2" Grid.Row="5" Content="Seleccionar" Height="Auto" Click="btnImagen_Click" Canvas.Left="546" Canvas.Top="176"/>
+
+                <GroupBox Grid.Column="2" Grid.Row="0" Grid.RowSpan="4" Header="Imagen" Canvas.Left="536" Canvas.Top="30" Width="130" Height="112">
                     <Image x:Name="imgPhoto" Stretch="Fill" />
                 </GroupBox>
 
-            </Grid>
+            </Canvas>
         </GroupBox>
-        <GroupBox Header="Empleados Existentes&#xD;&#xA;" Margin="32,386,31,28" Grid.ColumnSpan="2">
-            <DataGrid x:Name="dgEmpleados" MouseDoubleClick="dgEmpleados_MouseDoubleClick" Margin="0,0,0,15"/>
+        <GroupBox Header="Empleados Existentes&#xD;&#xA;" Grid.ColumnSpan="2" Grid.Column="1" Height="272" Canvas.Left="13" Canvas.Top="373" Width="714">
+            <DataGrid x:Name="dgEmpleados" MouseDoubleClick="dgEmpleados_MouseDoubleClick" Margin="0,0,0,15" Width="649"/>
         </GroupBox>
-        <Canvas Margin="31,400,32,380" Grid.ColumnSpan="2"/>
-        <Canvas Grid.ColumnSpan="2" Margin="32,495,32,253">
-            <Button x:Name="btnLimpiar" Content="Limpiar" Click="btnLimpiar_Click" Height="32" Width="134" Canvas.Left="3" Canvas.Top="-158"/>
-            <Button x:Name="btnEliminar" Content="Eliminar" Click="btnEliminar_Click" Height="32" Canvas.Left="159" Width="140" Canvas.Top="-158"/>
-            <Button x:Name="btnModificar" Content="Modificar" Click="btnModificar_Click" Height="32" Canvas.Left="325" Width="158" Canvas.Top="-158"/>
-            <Button x:Name="btnGuardar" Content="Guardar" Click="btnGuardar_Click" Height="32" Canvas.Left="503" Width="142" Canvas.Top="-158"/>
+        <Canvas Margin="13,400,32,290" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Canvas Grid.ColumnSpan="2" Margin="14,495,32,195" Grid.Column="1">
+            <Button x:Name="btnLimpiar" Content="Limpiar" Click="btnLimpiar_Click" Height="32" Width="134" Canvas.Left="20" Canvas.Top="-171"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" Click="btnEliminar_Click" Height="32" Canvas.Left="181" Width="140" Canvas.Top="-171"/>
+            <Button x:Name="btnModificar" Content="Modificar" Click="btnModificar_Click" Height="32" Canvas.Left="342" Width="158" Canvas.Top="-171"/>
+            <Button x:Name="btnGuardar" Content="Guardar" Click="btnGuardar_Click" Height="32" Canvas.Left="526" Width="142" Canvas.Top="-171"/>
 
         </Canvas>
 
-    </Grid>
+    </Canvas>
 </Window>
