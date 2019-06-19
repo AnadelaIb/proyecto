@@ -41,7 +41,8 @@ namespace ProyectoNomina
         }
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            Concepto datoconcepto = new Concepto();
+           
+                Concepto datoconcepto = new Concepto();
 
             datoconcepto.Descripcion = txtParame.Text;
 
@@ -53,18 +54,26 @@ namespace ProyectoNomina
             
             
             datos.Concepto.Add(datoconcepto);
+           
             datos.SaveChanges();
             MessageBox.Show("Tus datos se guardaron correctamente!");
             CargarDatosGrilla();
+            Limpiar();
+          
 
         }
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            Limpiar();
+
+
+        }
+        private void Limpiar()
         {
             txtId.Text = string.Empty;
             txtParame.Text = string.Empty;
 
             rdbAdicionar.IsChecked = true;
-
 
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -103,6 +112,7 @@ namespace ProyectoNomina
                 datos.SaveChanges();
                 MessageBox.Show("Tus datos se modificaron correctamente!");
                 CargarDatosGrilla();
+                Limpiar();
             }
             else
                 MessageBox.Show("Debe seleccionar un Concepto de la grilla para modificar!");

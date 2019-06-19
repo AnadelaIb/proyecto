@@ -55,18 +55,22 @@ namespace ProyectoNomina
         }
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            Turno turno = new Turno();
+           
+                Turno turno = new Turno();
 
             turno.Hora_Entrada = txtHorarioEntrada.Text;
             turno.Hora_Salida = txtHorarioSalida.Text;
             turno.Observaciones = txtObservacion.Text;
-
+            
 
             datos.Turno.Add(turno);
+           
+
             datos.SaveChanges();
             MessageBox.Show("Tus datos se han guardado correctamente!");
             CargarDatosGrilla();
-            
+                Limpiar();
+           
 
         }
 
@@ -86,18 +90,25 @@ namespace ProyectoNomina
                 datos.Entry(a).State = System.Data.Entity.EntityState.Modified;
                 datos.SaveChanges();
                 CargarDatosGrilla();
+                Limpiar();
+
                 MessageBox.Show("Tus datos fueron modificados correctamente!");
+
             }
             else
                 MessageBox.Show("Debes seleccionar un Turno de la grilla para modificar!");
         }
-
-        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        private void Limpiar()
         {
+
             txtId.Text = string.Empty;
             txtHorarioEntrada.Text = string.Empty;
             txtHorarioSalida.Text = string.Empty;
             txtObservacion.Text = string.Empty;
+        }
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            Limpiar();
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
