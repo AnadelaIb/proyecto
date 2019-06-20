@@ -131,6 +131,9 @@
     <Compile Include="Usuario.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="w_SalarioHistorico.xaml.cs">
+      <DependentUpon>w_SalarioHistorico.xaml</DependentUpon>
+    </Compile>
     <Compile Include="w_Turnos.xaml.cs">
       <DependentUpon>w_Turnos.xaml</DependentUpon>
     </Compile>
@@ -176,6 +179,10 @@
     <Page Include="w_Empleados.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="w_SalarioHistorico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="w_Turnos.xaml">
       <SubType>Designer</SubType>
