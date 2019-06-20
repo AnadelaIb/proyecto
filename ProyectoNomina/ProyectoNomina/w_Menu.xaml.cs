@@ -81,5 +81,11 @@ namespace ProyectoNomina
             w_AsignarTurno ventanaAsignarTurno = new w_AsignarTurno();
             ventanaAsignarTurno.ShowDialog();
         }
+
+        private void MenuSalario_Click(object sender, RoutedEventArgs e)
+        {
+            w_SalarioHistorico ventanaSalario = new w_SalarioHistorico();
+            ventanaSalario.ShowDialog();
+        }
     }
 }

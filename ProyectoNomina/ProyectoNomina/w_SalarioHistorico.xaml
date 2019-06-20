@@ -7,23 +7,21 @@
         mc:Ignorable="d"
         Title="Salario Básico" Height="424.137" Width="736.208" Loaded="Window_Loaded">
     <Canvas>
-        <Label  Content="Id" Canvas.Left="27" Canvas.Top="25"/>
-        <Label  Content="Empleado" Canvas.Left="27" Canvas.Top="56"/>
-        <Label  Content="Salario Anterior" Canvas.Left="320" Canvas.Top="20"/>
-        <Label  Content="Salario Nuevo" Canvas.Left="320" Canvas.Top="51"/>
-        <Label  Content="Usuario" Canvas.Left="320" Canvas.Top="82"/>
-        <TextBox x:Name="txtId" Height="23" Canvas.Left="165" TextWrapping="Wrap"  Canvas.Top="25" Width="120"/>
+        <Label  Content="Empleado" Canvas.Left="34" Canvas.Top="20"/>
+        <Label  Content="Salario Anterior" Canvas.Left="320" Canvas.Top="23"/>
+        <Label  Content="Salario Nuevo" Canvas.Left="320" Canvas.Top="62"/>
+        <Label  Content="Usuario" Canvas.Left="34" Canvas.Top="59"/>
         <TextBox x:Name="txtSalarioAnterior" Height="23" Canvas.Left="458" TextWrapping="Wrap"  Canvas.Top="23" Width="120"/>
-        <TextBox x:Name="txtSalarioNuevo" Height="23" Canvas.Left="458" TextWrapping="Wrap"  Canvas.Top="54" Width="120"/>
+        <TextBox x:Name="txtSalarioNuevo" Height="23" Canvas.Left="458" TextWrapping="Wrap"  Canvas.Top="62" Width="120"/>
 
         <GroupBox Header="Empleados Existentes&#xD;&#xA;" Grid.ColumnSpan="2" Grid.Column="1" Height="272" Canvas.Top="121" Width="714" Canvas.Left="4">
             <DataGrid x:Name="dgEmpleados" MouseDoubleClick="dgEmpleados_MouseDoubleClick" Margin="0,0,0,15" Width="649"/>
         </GroupBox>
 
-        <Button x:Name="btnAgregar" Content="Agregar" Canvas.Left="620" Canvas.Top="32" Width="75" Height="29" RenderTransformOrigin="2.897,0.561"/>
-        <Button x:Name="btnLimpiar" Content="Limpiar" Canvas.Left="620" Canvas.Top="79" Width="75" Height="29"/>
-        <TextBox x:Name="txtEmpleado" Height="23" Canvas.Left="165" TextWrapping="Wrap"  Canvas.Top="59" Width="120"/>
-        <ComboBox x:Name="cboUsuario" Canvas.Left="458" Canvas.Top="86" Width="120"/>
+        <Button x:Name="btnAgregar" Content="Agregar" Canvas.Left="620" Canvas.Top="20" Width="98" Height="29" RenderTransformOrigin="2.897,0.561" Click="btnAgregar_Click" />
+        <Button x:Name="btnLimpiar" Content="Limpiar" Canvas.Left="620" Canvas.Top="68" Width="98" Height="29" Click="btnLimpiar_Click" />
+        <TextBox x:Name="txtEmpleado" Height="23" Canvas.Left="172" TextWrapping="Wrap"  Canvas.Top="23" Width="120"/>
+        <ComboBox x:Name="cboUsuario" Canvas.Left="172" Canvas.Top="57" Width="120"/>
 
     </Canvas>
 </Window>
