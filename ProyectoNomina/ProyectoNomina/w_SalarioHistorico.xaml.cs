@@ -17,6 +17,8 @@ namespace ProyectoNomina
     /// <summary>
     /// Lógica de interacción para w_SalarioHistorico.xaml
     /// </summary>
+    /// 
+    
     public partial class w_SalarioHistorico : Window
     {
         NominaEntities datos;
@@ -24,13 +26,23 @@ namespace ProyectoNomina
         {
             InitializeComponent();
             datos = new NominaEntities();
+         
         }
+
+        
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Usuario usu = new Usuario();
             cboUsuario.ItemsSource = datos.Usuario.ToList();
             cboUsuario.DisplayMemberPath = "Usuario";
             cboUsuario.SelectedValuePath = "Id_Usuario";
+
+        
+            //Debe obtener el Usuario asignado desde la clase Usuario
+            txtUsuario.Text = usu.Usuario1; // Recupera el nombre de usuario
+            //txtUsuId.Text = usu.Id_Usuario.ToString();
+            txtUsuId.Text = usu.Id_Usuario.ToString();
             CargarDatosGrilla();
           
         }
@@ -42,7 +54,7 @@ namespace ProyectoNomina
                  
                 dgEmpleados.ItemsSource = datos.Empleado.ToList();
                 var turno = datos.Turno.ToList();
-               
+                               
             }
             catch (Exception ex)
             {
@@ -66,15 +78,17 @@ namespace ProyectoNomina
             try
             {
                 Empleado_Salario_Historico  salario = new Empleado_Salario_Historico();
+               
 
                 salario.Empleado_Id = Int32.Parse(txtEmpleado.Text);
                 salario.Salario_Basico_Anterior = Int32.Parse(txtSalarioAnterior .Text);
                 salario.Salario_Basico_Nuevo = Int32.Parse(txtSalarioNuevo .Text);
                 salario.Fecha_Hora = DateTime.Now;
-                salario.Usuario = (Usuario)cboUsuario.SelectedItem;
+
+                salario.Usuario_Id = Int32.Parse(txtUsuId.Text);
 
 
-                    datos.Empleado_Salario_Historico.Add(salario);
+                datos.Empleado_Salario_Historico.Add(salario);
                     datos.SaveChanges();
                     MessageBox.Show("Tus datos se han guardado correctamente!");
 

@@ -32,6 +32,8 @@ namespace ProyectoNomina
             {
                 //Con una sola linea de código, cargamos la grilla 
                 dgTurnos.ItemsSource = datos.Turno.ToList();
+                w_Empleados emple = new w_Empleados();
+                emple.cboTurno.ItemsSource = datos.Turno.ToList();
             }
             catch (Exception ex)
             {
@@ -55,9 +57,10 @@ namespace ProyectoNomina
         }
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-           
+            
                 Turno turno = new Turno();
 
+           
             turno.Hora_Entrada = txtHorarioEntrada.Text;
             turno.Hora_Salida = txtHorarioSalida.Text;
             turno.Observaciones = txtObservacion.Text;
@@ -69,9 +72,10 @@ namespace ProyectoNomina
             datos.SaveChanges();
             MessageBox.Show("Tus datos se han guardado correctamente!");
             CargarDatosGrilla();
-                Limpiar();
-           
+            
+            Limpiar();
 
+            
         }
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)

@@ -35,8 +35,9 @@ namespace ProyectoNomina
             CargarDatosGrilla();
             cboTurno.ItemsSource = datos.Turno.ToList();
             cboTurno.DisplayMemberPath = "Hora_Entrada";
-            cboTurno.SelectedValuePath = "Id_Turno";
-            
+             cboTurno.SelectedValuePath = "Id_Turno";
+
+
         }
         private void CargarDatosGrilla()
         {
@@ -199,8 +200,11 @@ namespace ProyectoNomina
 
         private void dgEmpleados_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
-                Empleado a = (Empleado)dgEmpleados.SelectedItem;
+            try
+            {
+                if (dgEmpleados.SelectedItem != null)
+                {
+                    Empleado a = (Empleado)dgEmpleados.SelectedItem;
 
                 txtNombre.Text = a.Nombres;
                 txtApellido.Text = a.Apellidos;
@@ -219,13 +223,19 @@ namespace ProyectoNomina
 
                 txtSalarioBasico.IsEnabled = false;
                 btnInfo.IsEnabled = true;
-         
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Debe seleccionar un registro válido");
+            }
         }
 
         private void btnActualizarTurno_Click(object sender, RoutedEventArgs e)
         {
             w_Turnos AddTurno = new w_Turnos();
             AddTurno.ShowDialog();
+           cboTurno.ItemsSource = datos.Turno.ToList();
         }
 
         private void btnInfo_Click(object sender, RoutedEventArgs e)

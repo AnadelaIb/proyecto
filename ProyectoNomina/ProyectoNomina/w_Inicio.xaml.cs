@@ -14,18 +14,22 @@ using System.Windows.Shapes;
 
 namespace ProyectoNomina
 {
+
+    
     /// <summary>
     /// Lógica de interacción para w_Inicio.xaml
     /// </summary>
     public partial class w_Inicio : Window
     {
+
+
         NominaEntities datos;
         public w_Inicio()
         {
             InitializeComponent();
             datos = new NominaEntities();
         }
-
+        
         private void Limpiar()
         {
             txtUsuario.Text = string.Empty;
@@ -40,9 +44,16 @@ namespace ProyectoNomina
 
                 if (txtUsuario.Text.Equals(c.Usuario1) & txtPass.Password.Equals(c.Password))
                 {
-                 
+
+                    Usuario usu = new Usuario();
+                    var empleadoID = c.Empleado_Id;
+                    var usuarioID = c.Id_Usuario;
+                    var usuNom = c.Usuario1;
+                    usu.AsignarUsuario(usuarioID, empleadoID, usuNom);
+
+
                     w_Menu ventana = new w_Menu();
-                    
+
                     this.Close();
                     ventana.ShowDialog();
                    
