@@ -21,10 +21,13 @@ namespace ProyectoNomina
     public partial class w_Empleados : Window
     {
         NominaEntities datos;
+        
+
         public w_Empleados()
         {
             InitializeComponent();
             datos = new NominaEntities();
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -33,6 +36,7 @@ namespace ProyectoNomina
             cboTurno.ItemsSource = datos.Turno.ToList();
             cboTurno.DisplayMemberPath = "Hora_Entrada";
             cboTurno.SelectedValuePath = "Id_Turno";
+            
         }
         private void CargarDatosGrilla()
         {
@@ -98,6 +102,7 @@ namespace ProyectoNomina
                  
 
             datos.Empleado.Add(emple);
+           
             datos.SaveChanges();
             MessageBox.Show("Tus datos se han guardado correctamente!");
             CargarDatosGrilla();
@@ -150,7 +155,7 @@ namespace ProyectoNomina
 
                 emple.Imagen_Perfil = imgPhoto.Source.ToString();
 
-                emple.Salario_Basico = Int32.Parse(txtSalarioBasico.Text);
+              // emple.Salario_Basico = Int32.Parse(txtSalarioBasico.Text);
 
                 emple.Turno = (Turno)cboTurno.SelectedItem;
                 datos.Entry(emple).State = System.Data.Entity.EntityState.Modified;
@@ -161,7 +166,7 @@ namespace ProyectoNomina
                 Limpiar();
             }
             else
-                MessageBox.Show("Debe seleccionar un Empleado de la grilla para modificar!");
+                MessageBox.Show("Debe seleccionar un Empleado de la grilla para modificar!\n Para modificar el salario debes ir a la ventana Salarios");
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
@@ -187,6 +192,8 @@ namespace ProyectoNomina
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
              Limpiar();
+            txtSalarioBasico.IsEnabled = true;
+            btnInfo.IsEnabled = false;
 
         }
 
@@ -195,7 +202,6 @@ namespace ProyectoNomina
 
                 Empleado a = (Empleado)dgEmpleados.SelectedItem;
 
-                
                 txtNombre.Text = a.Nombres;
                 txtApellido.Text = a.Apellidos;
                 txtDireccion.Text = a.Direccion;
@@ -209,9 +215,23 @@ namespace ProyectoNomina
 
                 dpFechaNac.Text = a.Fecha_Nacimiento.ToString();
                 dpFechIngreso.Text = a.Fecha_Incorporacion.ToString();
-            cboTurno.SelectedValue = a.Turno_Id.ToString();
+                cboTurno.SelectedValue = a.Turno_Id.ToString();
 
-          
+                txtSalarioBasico.IsEnabled = false;
+                btnInfo.IsEnabled = true;
+         
+        }
+
+        private void btnActualizarTurno_Click(object sender, RoutedEventArgs e)
+        {
+            w_Turnos AddTurno = new w_Turnos();
+            AddTurno.ShowDialog();
+        }
+
+        private void btnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Para modificar el salario debes ir a la ventana Salarios");
         }
     }
-}
+    }
+

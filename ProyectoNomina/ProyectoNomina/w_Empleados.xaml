@@ -29,7 +29,9 @@
                 <TextBox Grid.Column="1" Grid.Row="5" x:Name="txtNroTelefono" Canvas.Left="287" Width="135" Canvas.Top="145" RenderTransformOrigin="0.489,2.003"/>
                 <DatePicker Grid.Column="1" Grid.Row="6" Name="dpFechIngreso" Canvas.Left="287" Canvas.Top="169" RenderTransformOrigin="1.12,0.56" Width="135"   />
                 <TextBox Grid.Column="1" Grid.Row="7" x:Name="txtSalarioBasico" Canvas.Left="287" Width="135" Canvas.Top="201"/>
+                <Button x:Name="btnInfo" Content="i" Click="btnInfo_Click" Canvas.Left="442" Canvas.Top="201" Height="25" Width="40" IsEnabled="False" IsDefault="True"/>
                 <ComboBox Grid.Column="1" Grid.Row="8" x:Name="cboTurno" Canvas.Left="287" Canvas.Top="236" Width="135"/>
+                <Button x:Name="btnActualizarTurno" Content="+" Click="btnActualizarTurno_Click" Canvas.Left="442" Canvas.Top="236" Height="28" Width="40" />
 
                 <Button x:Name="btnImagen" Grid.Column="2" Grid.Row="5" Content="Seleccionar" Height="Auto" Click="btnImagen_Click" Canvas.Left="546" Canvas.Top="176"/>
 

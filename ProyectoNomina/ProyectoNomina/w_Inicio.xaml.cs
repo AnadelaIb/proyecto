@@ -42,6 +42,7 @@ namespace ProyectoNomina
                 {
                  
                     w_Menu ventana = new w_Menu();
+                    
                     this.Close();
                     ventana.ShowDialog();
                    
@@ -52,7 +53,7 @@ namespace ProyectoNomina
             }
             if (b == 0)
             {
-                MessageBox.Show("Tus datos están incorrecto!");
+                MessageBox.Show("Tus datos están incorrectos!");
                 Limpiar();
             }
         }
