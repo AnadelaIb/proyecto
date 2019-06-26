@@ -24,6 +24,7 @@ namespace ProyectoNomina
 
 
         NominaEntities datos;
+        int userId;
         public w_Inicio()
         {
             InitializeComponent();
@@ -45,14 +46,8 @@ namespace ProyectoNomina
                 if (txtUsuario.Text.Equals(c.Usuario1) & txtPass.Password.Equals(c.Password))
                 {
 
-                    Usuario usu = new Usuario();
-                    var empleadoID = c.Empleado_Id;
-                    var usuarioID = c.Id_Usuario;
-                    var usuNom = c.Usuario1;
-                    usu.AsignarUsuario(usuarioID, empleadoID, usuNom);
-
-
-                    w_Menu ventana = new w_Menu();
+                    userId = c.Id_Usuario;
+                    w_Menu ventana = new w_Menu(userId);
 
                     this.Close();
                     ventana.ShowDialog();

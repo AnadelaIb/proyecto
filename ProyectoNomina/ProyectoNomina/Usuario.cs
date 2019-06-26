@@ -33,18 +33,18 @@ namespace ProyectoNomina
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Liquidacion_Mensual> Liquidacion_Mensual { get; set; }
 
-        public void AsignarUsuario(int a, int b,string c)
-        {
-            this.Id_Usuario = a;
-            this.Empleado_Id = b;
-            this.Usuario1 = c;
+        //public void AsignarUsuario(int a, int b,string c)
+        //{
+        //    this.Id_Usuario = a;
+        //    this.Empleado_Id = b;
+        //    this.Usuario1 = c;
            
-        }
-        public int DevuelveUsuario() {
-           // var a = this.Usuario1;
-            var b = this.Id_Usuario;
-            return b;
-        }
+        //}
+        //public int DevuelveUsuario() {
+        //   // var a = this.Usuario1;
+        //    var b = this.Id_Usuario;
+        //    return b;
+        //}
         
     }
 }

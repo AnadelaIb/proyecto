@@ -5,24 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="Menu Principal" Height="300" Width="569.758" WindowState="Maximized" Icon="Resources/JOB_VECTOR.png" WindowStyle="ThreeDBorderWindow">
+          Title="Menu Principal" Height="401.504" Width="638.555" Icon="Resources/JOB_VECTOR.png" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Window.Background >
 
         <ImageBrush ImageSource="Resources/ImgMenu.jpg"/>
 
     </Window.Background >
-    <Canvas Margin="0,0,0,0">
-        <Menu x:Name="MenuPrincipal">
-            <MenuItem Header="Registrar"  HorizontalAlignment="Left" Margin="0,0,0,0"  >
+    <Canvas Margin="0">
+        <Canvas.Background>
+            <ImageBrush ImageSource="Resources/ImgMenu.jpg"/>
+        </Canvas.Background>
+
+        <Menu x:Name="MenuPrincipal" Width="236">
+            <MenuItem Header="Registrar"  HorizontalAlignment="Left" Margin="0,0,0,0" Click="MenuItem_Click"  >
                 <MenuItem Header="Empleado"  x:Name="menuEmpleado" Click="menuEmpleado_Click" />
                 <Separator />
-                <MenuItem Header="Turno">
-                    <MenuItem x:Name="MenuTurno" Header="Cargar Turno" Click="MenuTurno_Click"/>
-                    <Separator />
-                    <MenuItem Header="Asignar Turno Empleado" x:Name="AsignarTurno" Click="AsignarTurno_Click"/>
-                </MenuItem>
+                <MenuItem x:Name="MenuTurno" Header="Cargar Turno" Click="MenuTurno_Click" Height="27"/>
                 <Separator />
                 <MenuItem Header="Concepto" x:Name="MenuConcepto" Click="MenuConcepto_Click"  />
+                <Separator />
                 <MenuItem Header="Actualizar Salario" x:Name="MenuSalario" Click="MenuSalario_Click"   />
             </MenuItem>
             <MenuItem Header="Visualizar" Height="41" >
@@ -32,7 +33,9 @@
                 <Separator />
                 <MenuItem Header="Anticipo Salarial" x:Name="menuAnticipo" Click="menuAnticipo_Click"  />
             </MenuItem>
-            <Button x:Name="btnCerrar" Content="Cerrar Sesión" HorizontalAlignment="Right" Width="132" Click="btnCerrar_Click" Height="43"/>
         </Menu>
+        <Button x:Name="btnCerrar" Content="Cerrar Sesión" HorizontalAlignment="Right" Width="120" Click="btnCerrar_Click" Height="43" Canvas.Left="501" Canvas.Top="5"/>
+        <Label x:Name="label" Content="Proyecto Nómina " Canvas.Left="262" Canvas.Top="71" Width="191" FontFamily="Segoe UI Black" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
+
     </Canvas>
 </Window>

@@ -22,29 +22,22 @@ namespace ProyectoNomina
     public partial class w_SalarioHistorico : Window
     {
         NominaEntities datos;
-        public w_SalarioHistorico()
+        int userID;
+        public w_SalarioHistorico(int userId)
         {
             InitializeComponent();
             datos = new NominaEntities();
-         
+            userID = userId;
         }
 
-        
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Usuario usu = new Usuario();
-            cboUsuario.ItemsSource = datos.Usuario.ToList();
-            cboUsuario.DisplayMemberPath = "Usuario";
-            cboUsuario.SelectedValuePath = "Id_Usuario";
+            txtUsuId.Text = userID.ToString();
 
-        
-            //Debe obtener el Usuario asignado desde la clase Usuario
-            txtUsuario.Text = usu.Usuario1; // Recupera el nombre de usuario
-            //txtUsuId.Text = usu.Id_Usuario.ToString();
-            txtUsuId.Text = usu.Id_Usuario.ToString();
             CargarDatosGrilla();
-          
+
         }
 
         private void CargarDatosGrilla()

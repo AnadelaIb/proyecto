@@ -21,9 +21,9 @@
         <Button x:Name="btnAgregar" Content="Agregar" Canvas.Left="620" Canvas.Top="20" Width="98" Height="29" RenderTransformOrigin="2.897,0.561" Click="btnAgregar_Click" />
         <Button x:Name="btnLimpiar" Content="Limpiar" Canvas.Left="620" Canvas.Top="68" Width="98" Height="29" Click="btnLimpiar_Click" />
         <TextBox x:Name="txtEmpleado" Height="23" Canvas.Left="172" TextWrapping="Wrap"  Canvas.Top="23" Width="120" IsEnabled="False"/>
-        <ComboBox x:Name="cboUsuario" Canvas.Left="172" Canvas.Top="57" Width="120"/>
-        <TextBox x:Name="txtUsuario" Height="23" Canvas.Left="172" TextWrapping="Wrap" Text="" Canvas.Top="97" Width="120"/>
-        <TextBox x:Name="txtUsuId" Height="23" Canvas.Left="311" TextWrapping="Wrap" Text="" Canvas.Top="98" Width="35"/>
+        <!--<ComboBox x:Name="cboUsuario" Canvas.Left="172" Canvas.Top="57" Width="120"/>-->
+        <!--<TextBox x:Name="txtUsuario" Height="23" Canvas.Left="172" TextWrapping="Wrap" Text="" Canvas.Top="65" Width="120"/>-->
+        <TextBox x:Name="txtUsuId" Height="23" Canvas.Left="172" TextWrapping="Wrap" IsEnabled="False" Text="" Canvas.Top="62" Width="120" RenderTransformOrigin="-3.761,-0.998"/>
 
     </Canvas>
 </Window>

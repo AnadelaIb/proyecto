@@ -19,10 +19,11 @@ namespace ProyectoNomina
     /// </summary>
     public partial class w_Menu : Window
     {
-        public w_Menu()
+        int userID;
+        public w_Menu(int userId)
         {
             InitializeComponent();
-           
+            userID = userId;
         }
 
         private void menuEmpleado_Click(object sender, RoutedEventArgs e)
@@ -65,7 +66,7 @@ namespace ProyectoNomina
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            w_Menu mr = new w_Menu();
+            w_Menu mr = new w_Menu(userID);
 
             mr.Close();
 
@@ -84,8 +85,13 @@ namespace ProyectoNomina
 
         private void MenuSalario_Click(object sender, RoutedEventArgs e)
         {
-            w_SalarioHistorico ventanaSalario = new w_SalarioHistorico();
+            w_SalarioHistorico ventanaSalario = new w_SalarioHistorico(userID);
             ventanaSalario.ShowDialog();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
