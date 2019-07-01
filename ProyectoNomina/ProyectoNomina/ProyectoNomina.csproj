@@ -246,6 +246,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\home.png" />
     <Resource Include="Resources\JOB_VECTOR.png" />
     <Resource Include="Resources\ImgMenu.jpg" />
     <Content Include="Modelo.Context.tt">
