@@ -88,10 +88,16 @@ namespace ProyectoNomina
             w_SalarioHistorico ventanaSalario = new w_SalarioHistorico(userID);
             ventanaSalario.ShowDialog();
         }
-
+        private void MenuLiquidacion_Click(object sender, RoutedEventArgs e)
+        {
+            w_LiquidacionMensual ventanaLiquidacion = new w_LiquidacionMensual(userID);
+            ventanaLiquidacion.ShowDialog();
+        }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
+        
     }
 }
