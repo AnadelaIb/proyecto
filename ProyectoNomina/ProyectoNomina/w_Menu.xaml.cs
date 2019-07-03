@@ -98,6 +98,10 @@ namespace ProyectoNomina
 
         }
 
-        
+        private void MenuLiquidacionDetalle_Click(object sender, RoutedEventArgs e)
+        {
+            w_LiquidacionMensualDetalle ventanaLiquidacionDetalle = new w_LiquidacionMensualDetalle();
+            ventanaLiquidacionDetalle.ShowDialog();
+        }
     }
 }

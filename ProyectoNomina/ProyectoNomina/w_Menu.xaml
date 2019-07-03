@@ -27,6 +27,8 @@
                 <MenuItem Header="Actualizar Salario" x:Name="MenuSalario" Click="MenuSalario_Click"   />
                 <Separator />
                 <MenuItem Header="Liquidación Mensual" x:Name="MenuLiquidacion" Click="MenuLiquidacion_Click"   />
+                <Separator />
+                <MenuItem Header="Liquidación Mensual Detalle" x:Name="MenuLiquidacionDetalle" Click="MenuLiquidacionDetalle_Click"   />
             </MenuItem>
             <MenuItem Header="Visualizar" Height="41" >
                 <MenuItem Header="Pedido de Vacaciones" x:Name="menuVacaciones" Click="menuVacaciones_Click"  />

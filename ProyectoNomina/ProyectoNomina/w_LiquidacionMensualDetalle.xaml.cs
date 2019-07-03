@@ -20,6 +20,7 @@ namespace ProyectoNomina
     public partial class w_LiquidacionMensualDetalle : Window
     {
         NominaEntities datos;
+       string estado;
         public w_LiquidacionMensualDetalle()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace ProyectoNomina
         {
             try
             {
-                //Con una sola linea de código, cargamos la grilla 
+               
                 dgLiquidaciones.ItemsSource = datos.Liquidacion_Mensual.ToList();
                 dgLiquidacionesDetalle.ItemsSource = datos.Liquidacion_Mensual_Detalle.ToList();
                 cboConcepto.ItemsSource = datos.Concepto.ToList();
@@ -54,51 +55,104 @@ namespace ProyectoNomina
         {
             CargarDatosGrilla();
             txtMsg.IsEnabled = false;
+            txtId.IsEnabled = false;
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if (dgLiquidaciones.SelectedItem != null)
+            char ch1 = 'A';
+
+            if (estado.Equals(ch1.ToString()))
             {
-             
                 Liquidacion_Mensual_Detalle nuevo = new Liquidacion_Mensual_Detalle();
-                Liquidacion_Mensual liqui = (Liquidacion_Mensual)dgLiquidaciones.SelectedItem;
-                nuevo.Liquidacion_Id = liqui.Id_Liquidacion;
 
-                nuevo.Empleado = (Empleado)cboEmpleado.SelectedItem;
-                nuevo.Concepto = (Concepto)cboConcepto.SelectedItem;
-
-                if (txtMonto.Text.Equals(0))
+                if (Int32.Parse(txtMonto.Text) > 0)
                 {
-                    MessageBox.Show("Debe ser mayor a O!");
+                    nuevo.Liquidacion_Id = (Int32.Parse(txtId.Text));
+                    nuevo.Empleado = (Empleado)cboEmpleado.SelectedItem;
+                    nuevo.Concepto = (Concepto)cboConcepto.SelectedItem;
+                    if (cboConcepto.SelectedValue.Equals(1))
+                    {
+                        nuevo.Monto = Int32.Parse(txtMonto.Text);
+                        txtMsg.Text = "El concepto es positivo";
+                    }
+                    else {
+                        nuevo.Monto = (Int32.Parse(txtMonto.Text)) * -1;
+                        txtMsg.Text = "El concepto es negativo";
+                    }
+                    datos.Liquidacion_Mensual_Detalle.Add(nuevo);
+                    datos.SaveChanges();
+                    MessageBox.Show("Los datos se han guardado correctamente!");
+
+                    CargarDatosGrilla();
+
+                    Limpiar();
                 }
                 else {
-                   
-                    //FALTA HACER ESTO
-
-                if (cboConcepto.SelectedItem.Equals('+'))
-                {
-                    txtMsg.Text = "es positivo";
-                    nuevo.Monto = Int32.Parse(txtMonto.Text);
+                  
+                    MessageBox.Show("El monto debe ser mayor a O!");
+                    Limpiar();
                 }
-                    else { 
-                    txtMsg.Text = "es negativo";
-                    nuevo.Monto = (Int32.Parse(txtMonto.Text))*-1;
-                    }
-              
-              
-
-                datos.Liquidacion_Mensual_Detalle.Add(nuevo);
-                datos.SaveChanges();
-                MessageBox.Show("Los datos se han guardado correctamente!");
-
-                CargarDatosGrilla();
-                }
+               
             }
             else
-                MessageBox.Show("Debe seleccionar una Liquidacion de la grilla para Agregar");
+            {
+                MessageBox.Show("El estado de la Liquidación no es Abierto!");
+                Limpiar();
+            }
+
+        }
 
 
+        private void Limpiar()
+        {
+            txtId.Text = string.Empty;
+            txtMonto.Text = string.Empty;
+            txtMsg.Text = string.Empty;
+            cboConcepto.SelectedValue = null;
+            cboEmpleado.SelectedValue = null;
+            estado = string.Empty;
+
+
+        }
+
+        private void dgLiquidaciones_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                if (dgLiquidaciones.SelectedItem != null)
+                {
+                    Liquidacion_Mensual a = (Liquidacion_Mensual)dgLiquidaciones.SelectedItem;
+
+                    txtId.Text = a.Id_Liquidacion.ToString();
+                    estado = a.Estado.ToString();
+                 
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Debe seleccionar un registro válido");
+            }
+        }
+
+        private void dgLiquidacionesDetalle_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgLiquidacionesDetalle.SelectedItem != null)
+            {
+               Liquidacion_Mensual_Detalle liquidacion = (Liquidacion_Mensual_Detalle)dgLiquidacionesDetalle.SelectedItem;
+                datos.Liquidacion_Mensual_Detalle.Remove(liquidacion);
+                datos.SaveChanges();
+                MessageBox.Show("Liquidacion detalle eliminado correctamente!");
+                CargarDatosGrilla();
+              
+            }
+            else
+                MessageBox.Show("Debe seleccionar un detalle de liquidación de la grilla para eliminar!");
         }
     }
 }
