@@ -39,6 +39,28 @@ namespace ProyectoNomina
 
         private void btnGenerar_Click(object sender, RoutedEventArgs e)
         {
+            var listaEmpleados = datos.Empleado.ToList();
+            var cantEmpleados = listaEmpleados.Count();
+            int[] conceptosPositivos = new int[cantEmpleados];
+            int[] conceptosNegativos = new int[cantEmpleados];
+            int[] IPS = new int[cantEmpleados];
+            int[] totalCobrar = new int[cantEmpleados];
+            var DetalleLiquidacion = datos.Liquidacion_Mensual_Detalle.ToList();
+
+            var id = (Liquidacion_Mensual)cboLiquidacion.SelectedItem;
+            for (int i = 1; i <= DetalleLiquidacion.Count(); i++)
+            {
+               if( (DetalleLiquidacion[i].Liquidacion_Id).Equals(id))
+                {
+                    
+                   
+                }
+            }
+
+            for (int i=1;i <=cantEmpleados; i++)
+            {
+                totalCobrar[i] = listaEmpleados[i].Salario_Basico;
+            }
 
         }
     }
