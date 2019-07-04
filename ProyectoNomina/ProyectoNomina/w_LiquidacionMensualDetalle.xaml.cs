@@ -35,7 +35,7 @@ namespace ProyectoNomina
                 dgLiquidaciones.ItemsSource = datos.Liquidacion_Mensual.ToList();
                 dgLiquidacionesDetalle.ItemsSource = datos.Liquidacion_Mensual_Detalle.ToList();
                 cboConcepto.ItemsSource = datos.Concepto.ToList();
-                cboConcepto.DisplayMemberPath = "Tipo";
+                cboConcepto.DisplayMemberPath = "Descripcion";
                 cboConcepto.SelectedValuePath = "Id_Concepto";
                 cboEmpleado.ItemsSource = datos.Empleado.ToList();
                 cboEmpleado.DisplayMemberPath = "Nombres";
@@ -43,6 +43,7 @@ namespace ProyectoNomina
 
                 var Concepto = datos.Concepto.ToList();
                 var Empleado = datos.Empleado.ToList();
+               
             }
             catch (Exception ex)
             {
@@ -54,13 +55,14 @@ namespace ProyectoNomina
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CargarDatosGrilla();
-            txtMsg.IsEnabled = false;
+            //txtMsg.IsEnabled = false;
             txtId.IsEnabled = false;
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             char ch1 = 'A';
+         
 
             if (estado.Equals(ch1.ToString()))
             {
@@ -71,14 +73,16 @@ namespace ProyectoNomina
                     nuevo.Liquidacion_Id = (Int32.Parse(txtId.Text));
                     nuevo.Empleado = (Empleado)cboEmpleado.SelectedItem;
                     nuevo.Concepto = (Concepto)cboConcepto.SelectedItem;
-                    if (cboConcepto.SelectedValue.Equals(1))
+                    if (nuevo.Concepto.Tipo.Equals('+'.ToString()))
                     {
                         nuevo.Monto = Int32.Parse(txtMonto.Text);
-                        txtMsg.Text = "El concepto es positivo";
+                        //txtMsg.Text = "El concepto es positivo";
+                        lblMesg.Content = "El concepto es positivo";
                     }
                     else {
                         nuevo.Monto = (Int32.Parse(txtMonto.Text)) * -1;
-                        txtMsg.Text = "El concepto es negativo";
+                        //txtMsg.Text = "El concepto es negativo";
+                        lblMesg.Content = "El concepto es negativo";
                     }
                     datos.Liquidacion_Mensual_Detalle.Add(nuevo);
                     datos.SaveChanges();
@@ -108,10 +112,11 @@ namespace ProyectoNomina
         {
             txtId.Text = string.Empty;
             txtMonto.Text = string.Empty;
-            txtMsg.Text = string.Empty;
+            //txtMsg.Text = string.Empty;
             cboConcepto.SelectedValue = null;
             cboEmpleado.SelectedValue = null;
             estado = string.Empty;
+            lblMesg.Content = string.Empty;
 
 
         }

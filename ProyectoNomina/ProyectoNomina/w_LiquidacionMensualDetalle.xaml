@@ -22,7 +22,8 @@
         <ComboBox x:Name="cboConcepto" Canvas.Left="692" Canvas.Top="85" Width="135" Height="34"/>
         <TextBox  x:Name="txtMonto" Canvas.Left="692" Width="135" Canvas.Top="221" RenderTransformOrigin="0.489,2.003" Height="34"/>
         <TextBox  x:Name="txtId" Canvas.Left="692" Width="95" Canvas.Top="18" RenderTransformOrigin="0.489,2.003" Height="34"/>
-        <TextBox  x:Name="txtMsg" Canvas.Left="692" Width="135" Canvas.Top="278" RenderTransformOrigin="0.489,2.003" Height="34" Foreground="#FFC30C0C"/>
+        <!--<TextBox  x:Name="txtMsg" Canvas.Left="544" Width="135" Canvas.Top="317" RenderTransformOrigin="0.489,2.003" Height="34" Foreground="#FFC30C0C"/>-->
+        <Label x:Name="lblMesg"  Canvas.Left="695" Canvas.Top="284" Width="132" Height="26" Foreground="#DDBD0C1C"/>
         <Button x:Name="btnGuardar" Content="Guardar" Canvas.Left="710" Canvas.Top="395" Width="135" Height="31" Click="btnGuardar_Click"/>
         <Button x:Name="btnEliminar" Content="Eliminar" Canvas.Left="509" Canvas.Top="395" Width="135" Height="31" Click="btnEliminar_Click"/>
     </Canvas>
