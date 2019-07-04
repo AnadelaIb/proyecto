@@ -20,6 +20,9 @@ namespace ProyectoNomina
     public partial class w_Generar : Window
     {
         NominaEntities datos;
+        int idLiquidacion;
+        int mesLiquidacion;
+        int anhoLiquidacion;
         public w_Generar()
         {
             InitializeComponent();
@@ -28,40 +31,139 @@ namespace ProyectoNomina
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cboLiquidacion.ItemsSource = datos.Liquidacion_Mensual.ToList();
-            cboLiquidacion.DisplayMemberPath = "Mes"+"Anho";
-            cboLiquidacion.SelectedValuePath = "Id_Liquidacion";
-            
 
-            var Liquidacion = datos.Liquidacion_Mensual.ToList();
-            
+            dgLiquidaciones.ItemsSource = datos.Liquidacion_Mensual.ToList();
+          
+
         }
 
         private void btnGenerar_Click(object sender, RoutedEventArgs e)
         {
             var listaEmpleados = datos.Empleado.ToList();
+            var concepto = datos.Concepto.ToList();
             var cantEmpleados = listaEmpleados.Count();
             int[] conceptosPositivos = new int[cantEmpleados];
             int[] conceptosNegativos = new int[cantEmpleados];
-            int[] IPS = new int[cantEmpleados];
+            int[] Anticipo = new int[cantEmpleados];
+           double[] IPS = new double[cantEmpleados];
             int[] totalCobrar = new int[cantEmpleados];
             var DetalleLiquidacion = datos.Liquidacion_Mensual_Detalle.ToList();
 
-            var id = (Liquidacion_Mensual)cboLiquidacion.SelectedItem;
-            for (int i = 1; i <= DetalleLiquidacion.Count(); i++)
+            var anticipo = datos.Anticipo.ToList();
+
+            for (var p = 0; p < cantEmpleados; p++)
             {
-               if( (DetalleLiquidacion[i].Liquidacion_Id).Equals(id))
+                conceptosPositivos[p] = 0;
+                conceptosNegativos[p] = 0;
+                IPS[p] = 0;
+                totalCobrar[p] = 0;
+                Anticipo[p] = 0;
+            }
+
+      List <Liquidacion_Mensual_Detalle> listaDetalles = new List<Liquidacion_Mensual_Detalle>();
+            List<Anticipo> listaAnticipo = new List<Anticipo>();
+            foreach (var i in DetalleLiquidacion)
+            {
+                if (i.Liquidacion_Id==idLiquidacion)
                 {
-                    
-                   
+                    listaDetalles.Add(i);
+                }
+            }
+            foreach (var i in anticipo)
+            {
+                DateTime fecha = Convert.ToDateTime(i.Fecha_Definicion);
+                var mes = fecha.Month;
+                var anho = fecha.Year;
+                if (mesLiquidacion== mes && anhoLiquidacion== anho )
+                {
+                    listaAnticipo.Add(i);
                 }
             }
 
-            for (int i=1;i <=cantEmpleados; i++)
+            foreach (var i in listaEmpleados)
+                
             {
-                totalCobrar[i] = listaEmpleados[i].Salario_Basico;
+                int a=0;
+                for(var j = 0; j < listaDetalles.Count(); j++)
+                {
+                    if (i.Id_Empleado == listaDetalles[j].Empleado_Id)
+                    {
+                        if (listaDetalles[j].Monto > 0)
+                        {
+                            conceptosPositivos[a] = conceptosPositivos[a] + listaDetalles[j].Monto;
+                        }
+                        else
+                        {
+                            conceptosNegativos[a] = conceptosNegativos[a] + listaDetalles[j].Monto;
+                        }
+                    
+                    }
             }
+                for (var j = 0; j < listaAnticipo.Count(); j++)
+                {
+                    if (i.Id_Empleado == listaAnticipo[j].Empleado_Id)
+                    {
+                        if (listaAnticipo[j].Estado.Equals("Aprobado"))
+                        {
+                            Anticipo[a] = Anticipo[a] + listaAnticipo[j].Monto_Aprobado;
+                        }
+                    }
+                }
+                IPS[a] = (i.Salario_Basico + conceptosPositivos[a]) * 0.09;
+                
+                Liquidacion_Mensual_Detalle nw = new Liquidacion_Mensual_Detalle();
+                nw.Liquidacion_Id = idLiquidacion;
+                nw.Empleado_Id = i.Id_Empleado;
+                foreach(var k in concepto)
+                {
+                    if (k.Descripcion.Equals("IPS"))
+                        nw.Concepto_Id = k.Id_Concepto;
+                   
+                }
+                nw.Monto = (int)IPS[a];
+                datos.Liquidacion_Mensual_Detalle.Add(nw);
+                datos.SaveChanges();
 
+                totalCobrar[a] = ((i.Salario_Basico + conceptosPositivos[a]) - ((int)IPS[a]) - Anticipo[a] + conceptosNegativos[a]);
+
+                //Salarios salario = new Salarios();
+                //salario.idLiquidacion = idLiquidacion;
+                //salario.idEmpleado = i.Id_Empleado;
+                //salario.ConceptosPositivos = conceptosPositivos[a];
+                //salario.ConceptosNegativos = conceptosNegativos[a];
+                //salario.Anticipo = Anticipo[a];
+                //salario.IPS = (int)IPS[a];
+                //salario.TotalPercibir = totalCobrar[a];
+                //datos.Salario.Add(salario);
+                //datos.SaveChanges();
+
+                a++;
+
+            }
+         
+        }
+
+  
+
+        private void dgLiquidaciones_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                if (dgLiquidaciones.SelectedItem != null)
+                {
+                    Liquidacion_Mensual a = (Liquidacion_Mensual)dgLiquidaciones.SelectedItem;
+
+                    idLiquidacion= a.Id_Liquidacion;
+                    mesLiquidacion = a.Mes;
+                    anhoLiquidacion = a.Anho;
+
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Debe seleccionar un registro válido");
+            }
         }
     }
 }

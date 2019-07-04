@@ -24,27 +24,12 @@ namespace ProyectoNomina
         public int Id_Usuario { get; set; }
         public string Usuario1 { get; set; }
         public string Password { get; set; }
-        //  public Nullable<int> Empleado_Id { get; set; }
-        public int Empleado_Id { get; set; }
-
+        public Nullable<int> Empleado_Id { get; set; }
+    
         public virtual Empleado Empleado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Empleado_Salario_Historico> Empleado_Salario_Historico { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Liquidacion_Mensual> Liquidacion_Mensual { get; set; }
-
-        //public void AsignarUsuario(int a, int b,string c)
-        //{
-        //    this.Id_Usuario = a;
-        //    this.Empleado_Id = b;
-        //    this.Usuario1 = c;
-           
-        //}
-        //public int DevuelveUsuario() {
-        //   // var a = this.Usuario1;
-        //    var b = this.Id_Usuario;
-        //    return b;
-        //}
-        
     }
 }

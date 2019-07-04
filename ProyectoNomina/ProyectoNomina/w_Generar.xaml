@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="w_Generar" Height="300" Width="461" Loaded="Window_Loaded">
+        Title="w_Generar" Height="372.858" Width="596.339" Loaded="Window_Loaded">
     <Canvas>
         <Label Content="Total a percibir por empleado" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.297,2.453" Canvas.Left="101" Canvas.Top="11" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Fecha de Liquidación:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.297,2.453" Canvas.Left="25" Canvas.Top="58"/>
-        <ComboBox x:Name="cboLiquidacion" Canvas.Left="161" Canvas.Top="58" Width="120"/>
-
-        <Button x:Name="btnGenerar" Content="Generar" Canvas.Left="310" Canvas.Top="55" Width="90" Click="btnGenerar_Click"/>
+        <GroupBox Header="Liquidaciones Mensuales" Height="203" Canvas.Top="57" Width="568" Canvas.Left="10">
+            <DataGrid x:Name="dgLiquidaciones" SelectionChanged="dgLiquidaciones_SelectionChanged" Margin="0,10,-2,5"/>
+        </GroupBox>
+        <Button x:Name="btnGenerar" Content="Generar" Canvas.Left="474" Canvas.Top="284" Width="90" Click="btnGenerar_Click"/>
 
     </Canvas>
 </Window>

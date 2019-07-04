@@ -88,6 +88,18 @@
           <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Observaciones" Type="varchar" MaxLength="1000" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'Nomina.dbo.Salarios' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="Salarios">
+          <Property Name="IdLiquidacion" Type="int" />
+          <Property Name="IdEmpleado" Type="int" />
+          <Property Name="Salario" Type="int" />
+          <Property Name="ConceptosPositivos" Type="int" />
+          <Property Name="ConceptosNegativos" Type="int" />
+          <Property Name="Anticipo" Type="int" />
+          <Property Name="IPS" Type="int" />
+          <Property Name="TotalPercibir" Type="int" />
+        </EntityType>-->
         <EntityType Name="Turno">
           <Key>
             <PropertyRef Name="Id_Turno" />
@@ -106,9 +118,17 @@
           <Property Name="Password" Type="varchar" MaxLength="1000" Nullable="false" />
           <Property Name="Empleado_Id" Type="int" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vacaciones">
           <Key>
             <PropertyRef Name="Id_Vacaciones" />
+            
+            
+            
+            
+            
+            
           </Key>
           <Property Name="Id_Vacaciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Empleado_Id" Type="int" Nullable="false" />
@@ -261,7 +281,18 @@
           <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Vacaciones" EntityType="Self.Vacaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vacaciones" EntityType="Self.Vacaciones" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vacaciones].[Id_Vacaciones] AS [Id_Vacaciones], 
+    [Vacaciones].[Empleado_Id] AS [Empleado_Id], 
+    [Vacaciones].[Fecha_Desde] AS [Fecha_Desde], 
+    [Vacaciones].[Fecha_Hasta] AS [Fecha_Hasta], 
+    [Vacaciones].[Fecha_Solicitud] AS [Fecha_Solicitud], 
+    [Vacaciones].[Estado] AS [Estado], 
+    [Vacaciones].[Fecha_Definicion] AS [Fecha_Definicion], 
+    [Vacaciones].[Observaciones] AS [Observaciones]
+    FROM [dbo].[Vacaciones] AS [Vacaciones]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__Empleado___Emple__3F466844" Association="Self.FK__Empleado___Emple__3F466844">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Empleado_Salario_Historico" EntitySet="Empleado_Salario_Historico" />
