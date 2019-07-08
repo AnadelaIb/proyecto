@@ -59,8 +59,14 @@ namespace ProyectoNomina
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
+           
+
             try
             {
+                if (Int32.Parse(txtMes.Text) > 0 && Int32.Parse(txtMes.Text) < 13)
+                {
+
+         
                 Liquidacion_Mensual nuevo = new Liquidacion_Mensual();
 
 
@@ -82,13 +88,17 @@ namespace ProyectoNomina
 
                 CargarDatosGrilla();
 
-
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un mes válido!");
+                }
 
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe cargar todos los datos!");
+                MessageBox.Show("Atención!! ya existe liquidación!!");
             }
         }
     }

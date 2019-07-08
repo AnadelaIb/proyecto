@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="w_Generar" Height="372.858" Width="596.339" Loaded="Window_Loaded">
+        Title="w_Generar" Height="372.858" Width="596.339" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Canvas>
         <Label Content="Total a percibir por empleado" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.297,2.453" Canvas.Left="101" Canvas.Top="11" FontWeight="Bold" FontSize="16"/>
         <GroupBox Header="Liquidaciones Mensuales" Height="203" Canvas.Top="57" Width="568" Canvas.Left="10">

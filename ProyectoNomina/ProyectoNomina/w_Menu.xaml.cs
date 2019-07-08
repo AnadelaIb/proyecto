@@ -93,15 +93,24 @@ namespace ProyectoNomina
             w_LiquidacionMensual ventanaLiquidacion = new w_LiquidacionMensual(userID);
             ventanaLiquidacion.ShowDialog();
         }
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+      
 
         private void MenuLiquidacionDetalle_Click(object sender, RoutedEventArgs e)
         {
             w_LiquidacionMensualDetalle ventanaLiquidacionDetalle = new w_LiquidacionMensualDetalle();
             ventanaLiquidacionDetalle.ShowDialog();
+        }
+
+        private void menuGenerar_Click(object sender, RoutedEventArgs e)
+        {
+            w_Generar ventanaGenerar = new w_Generar();
+            ventanaGenerar.ShowDialog();
+        }
+
+        private void menuLiquidacionE_Click(object sender, RoutedEventArgs e)
+        {
+            w_MostrarLiquidacion ventanaLiquidacion = new w_MostrarLiquidacion();
+            ventanaLiquidacion.ShowDialog();
         }
     }
 }

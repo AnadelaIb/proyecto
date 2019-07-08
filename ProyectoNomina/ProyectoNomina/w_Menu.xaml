@@ -11,13 +11,13 @@
         <ImageBrush ImageSource="Resources/ImgMenu.jpg"/>
 
     </Window.Background >
-    <Canvas Margin="0">
+    <Canvas Margin="0,0,-8,2" Height="392" VerticalAlignment="Bottom">
         <Canvas.Background>
             <ImageBrush ImageSource="Resources/ImgMenu.jpg"/>
         </Canvas.Background>
 
-        <Menu x:Name="MenuPrincipal" Width="236">
-            <MenuItem Header="Registrar"  HorizontalAlignment="Left" Margin="0,0,0,0" Click="MenuItem_Click"  >
+        <Menu x:Name="MenuPrincipal" >
+            <MenuItem Header="Registrar"  HorizontalAlignment="Left" Margin="0,0,0,0"  RenderTransformOrigin="0.524,0.514"  >
                 <MenuItem Header="Empleado"  x:Name="menuEmpleado" Click="menuEmpleado_Click" />
                 <Separator />
                 <MenuItem x:Name="MenuTurno" Header="Cargar Turno" Click="MenuTurno_Click" Height="27"/>
@@ -36,10 +36,16 @@
                 <MenuItem Header="Solicitud de Permiso" x:Name="menuPermiso" Click="menuPermiso_Click"  />
                 <Separator />
                 <MenuItem Header="Anticipo Salarial" x:Name="menuAnticipo" Click="menuAnticipo_Click"  />
+                <Separator />
+                <MenuItem Header="Liquidación por Empleado " x:Name="menuLiquidacionE" Click="menuLiquidacionE_Click"  />
+
+            </MenuItem>
+            <MenuItem Header="Generar" Height="41" >
+                <MenuItem Header="Liquidación Mensual" x:Name="menuGenerar" Click="menuGenerar_Click"  />
+                <Separator />
             </MenuItem>
         </Menu>
         <Button x:Name="btnCerrar" Content="Cerrar Sesión" HorizontalAlignment="Right" Width="120" Click="btnCerrar_Click" Height="43" Canvas.Left="501" Canvas.Top="5"/>
-        <Label x:Name="label" Content="Proyecto Nómina " Canvas.Left="262" Canvas.Top="71" Width="191" FontFamily="Segoe UI Black" FontSize="16" HorizontalAlignment="Center" Foreground="Black"/>
-
+       
     </Canvas>
 </Window>

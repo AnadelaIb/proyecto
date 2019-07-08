@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoNomina"
         mc:Ignorable="d"
-        Title="w_MostrarLiquidacion" Height="318.045" Width="570.677">
-    <Grid>
+        Title="w_MostrarLiquidacion" Height="633.143" Width="761.188" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Canvas Margin="0,0,2,-5">
+        <ComboBox x:Name="cboEmpleado" Canvas.Left="50" Canvas.Top="133" Width="161" Height="34"/>
+        <Label x:Name="labe" Content="Seleccione el Empleado" Canvas.Left="50" Canvas.Top="93"/>
+        <TextBox  x:Name="txtId" Canvas.Left="163" Width="57" Canvas.Top="28" RenderTransformOrigin="0.489,2.003" Height="34"/>
+        <Label x:Name="la" Content="Liquidación" Canvas.Left="50" Canvas.Top="36" Width="95" RenderTransformOrigin="0.523,-1.11"/>
 
-    </Grid>
+        <GroupBox Header="Liquidaciones Mensuales" Height="161" Width="424" Canvas.Left="273" Canvas.Top="28">
+            <DataGrid x:Name="dgLiquidacion" SelectionChanged="dgLiquidacion_SelectionChanged" Margin="0,0,0,5"/>
+        </GroupBox>
+        <Label x:Name="label" Content="Salario Básico:" Canvas.Left="56" Canvas.Top="328" Width="135" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="IPS:" Canvas.Left="377" Canvas.Top="328" Width="135" FontWeight="Bold"/>
+        <Label x:Name="label2" Content="ConceptoPositivo:" Canvas.Left="56" Canvas.Top="395" Width="135" FontWeight="Bold"/>
+        <Label x:Name="label3" Content="ConceptoNegativo:" Canvas.Left="56" Canvas.Top="467" Width="135" FontWeight="Bold"/>
+        <Label x:Name="label4" Content="Anticipo:" Canvas.Left="377" Canvas.Top="395" Width="106" FontWeight="Bold"/>
+        <Label x:Name="label5" Content="TotalPercibir:" Canvas.Left="377" Canvas.Top="467" Width="117" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="label6" Content="Datos del Empleado" Canvas.Left="56" Canvas.Top="275" FontWeight="Bold"/>
+        <Label x:Name="lblNombre"  Canvas.Left="220" Canvas.Top="275" Height="26" Width="91"/>
+        <Label x:Name="lblApellido"  Canvas.Left="334" Canvas.Top="275" Height="26" Width="101"/>
+        <Button x:Name="btnVisualizar" Content="Visualizar" Canvas.Left="50" Canvas.Top="211" Width="170" Click="btnVisualizar_Click"/>
+        <Label x:Name="lblSalario" Content="" Canvas.Left="211" Canvas.Top="328" Width="100"/>
+        <Label x:Name="lblPositivo" Content="" Canvas.Left="211" Canvas.Top="395" Width="100"/>
+        <Label x:Name="lblNegativo" Content="" Canvas.Left="211" Canvas.Top="467" Width="100"/>
+        <Label x:Name="lblIPS" Content="" Canvas.Left="487" Canvas.Top="328" Width="100"/>
+        <Label x:Name="lblAnticipo" Content="" Canvas.Left="488" Canvas.Top="395" Width="100"/>
+        <Label x:Name="lblTotal" Content="" Canvas.Left="508" Canvas.Top="467" Width="169" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Height="41">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.071"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button x:Name="button" Content="Limpiar" Canvas.Left="565" Canvas.Top="529" Width="107" Click="button_Click"/>
+
+    </Canvas>
 </Window>
