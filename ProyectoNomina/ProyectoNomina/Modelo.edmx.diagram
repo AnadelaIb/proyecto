@@ -26,6 +26,7 @@
         <AssociationConnector Association="NominaModel.FK__Liquidaci__Usuar__36B12243" />
         <EntityTypeShape EntityType="NominaModel.Vacaciones" Width="1.5" PointX="3" PointY="11.875" />
         <AssociationConnector Association="NominaModel.FK_Vacaciones_Empleado" />
+        <EntityTypeShape EntityType="NominaModel.SalarioBasico" Width="1.5" PointX="8.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -72,7 +72,12 @@ namespace ProyectoNomina
                 {
                     nuevo.Liquidacion_Id = (Int32.Parse(txtId.Text));
                     nuevo.Empleado = (Empleado)cboEmpleado.SelectedItem;
-                    nuevo.Concepto = (Concepto)cboConcepto.SelectedItem;
+                    string concepto = cboConcepto.Text;
+                    if (!concepto.Equals("IPS"))
+                    {
+                        nuevo.Concepto = (Concepto)cboConcepto.SelectedItem;
+
+                 
                     if (nuevo.Concepto.Tipo.Equals('+'.ToString()))
                     {
                         nuevo.Monto = Int32.Parse(txtMonto.Text);
@@ -93,11 +98,17 @@ namespace ProyectoNomina
                     Limpiar();
                 }
                 else {
-                  
+                        MessageBox.Show("Lo siento usted no está autorizado para guardar con este concepto.");
+                        Limpiar();
+
+                    }
+                }
+                else {
+                   
                     MessageBox.Show("El monto debe ser mayor a O!");
                     Limpiar();
                 }
-               
+
             }
             else
             {

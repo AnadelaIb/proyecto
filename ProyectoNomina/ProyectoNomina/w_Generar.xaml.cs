@@ -37,8 +37,25 @@ namespace ProyectoNomina
 
         }
 
+        private bool ConsultaLiquidacion(int idLiquidacion)
+        {
+            var liquidacion = datos.SalarioBasico.ToList();
+            foreach(var q in liquidacion)
+            {
+                if(q.IdLiquidacion == idLiquidacion)
+                {
+                    return false;
+                }
+               
+            }
+            return true;
+        }
         private void btnGenerar_Click(object sender, RoutedEventArgs e)
         {
+            if (ConsultaLiquidacion(idLiquidacion))
+            {
+              
+          
             var listaEmpleados = datos.Empleado.ToList();
             var concepto = datos.Concepto.ToList();
             var cantEmpleados = listaEmpleados.Count();
@@ -126,24 +143,31 @@ namespace ProyectoNomina
 
                 totalCobrar[a] = ((i.Salario_Basico + conceptosPositivos[a]) - ((int)IPS[a]) - Anticipo[a] + conceptosNegativos[a]);
 
-                //Salarios salario = new Salarios();
-                //salario.idLiquidacion = idLiquidacion;
-                //salario.idEmpleado = i.Id_Empleado;
-                //salario.ConceptosPositivos = conceptosPositivos[a];
-                //salario.ConceptosNegativos = conceptosNegativos[a];
-                //salario.Anticipo = Anticipo[a];
-                //salario.IPS = (int)IPS[a];
-                //salario.TotalPercibir = totalCobrar[a];
-                //datos.Salario.Add(salario);
-                //datos.SaveChanges();
+                SalarioBasico salario = new SalarioBasico();
+                salario.IdLiquidacion = idLiquidacion;
+                salario.IdEmpleado = i.Id_Empleado;
+                salario.Salario = i.Salario_Basico;
+                salario.ConceptosPositivos = conceptosPositivos[a];
+                salario.ConceptosNegativos = conceptosNegativos[a];
+                salario.Anticipo = Anticipo[a];
+                salario.IPS = (int)IPS[a];
+                salario.TotalPercibir = totalCobrar[a];
+                datos.SalarioBasico.Add(salario);
+                datos.SaveChanges();
 
                 a++;
 
             }
-         
+
+                MessageBox.Show("Liquidación generada con éxito!!!");
+            }
+            else
+            {
+                MessageBox.Show("ATENCION!! Ya existe Liquidación para este mes!!");
+            }
         }
 
-  
+
 
         private void dgLiquidaciones_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

@@ -88,18 +88,20 @@
           <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Observaciones" Type="varchar" MaxLength="1000" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'Nomina.dbo.Salarios' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="Salarios">
-          <Property Name="IdLiquidacion" Type="int" />
-          <Property Name="IdEmpleado" Type="int" />
+        <EntityType Name="SalarioBasico">
+          <Key>
+            <PropertyRef Name="IdLiquidacion" />
+            <PropertyRef Name="IdEmpleado" />
+          </Key>
+          <Property Name="IdLiquidacion" Type="int" Nullable="false" />
+          <Property Name="IdEmpleado" Type="int" Nullable="false" />
           <Property Name="Salario" Type="int" />
           <Property Name="ConceptosPositivos" Type="int" />
           <Property Name="ConceptosNegativos" Type="int" />
           <Property Name="Anticipo" Type="int" />
           <Property Name="IPS" Type="int" />
           <Property Name="TotalPercibir" Type="int" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="Turno">
           <Key>
             <PropertyRef Name="Id_Turno" />
@@ -279,6 +281,7 @@ advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida nin
           <EntitySet Name="Liquidacion_Mensual" EntityType="Self.Liquidacion_Mensual" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Liquidacion_Mensual_Detalle" EntityType="Self.Liquidacion_Mensual_Detalle" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalarioBasico" EntityType="Self.SalarioBasico" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vacaciones" EntityType="Self.Vacaciones" store:Type="Tables" store:Schema="dbo">
@@ -516,6 +519,7 @@ advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida nin
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Vacaciones" EntitySet="Vacaciones" />
           </AssociationSet>
+          <EntitySet Name="SalarioBasico" EntityType="NominaModel.SalarioBasico" />
         </EntityContainer>
         <EntityType Name="Empleado_Salario_Historico">
           <Key>
@@ -666,6 +670,20 @@ advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida nin
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SalarioBasico">
+          <Key>
+            <PropertyRef Name="IdLiquidacion" />
+            <PropertyRef Name="IdEmpleado" />
+          </Key>
+          <Property Name="IdLiquidacion" Type="Int32" Nullable="false" />
+          <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="Salario" Type="Int32" />
+          <Property Name="ConceptosPositivos" Type="Int32" />
+          <Property Name="ConceptosNegativos" Type="Int32" />
+          <Property Name="Anticipo" Type="Int32" />
+          <Property Name="IPS" Type="Int32" />
+          <Property Name="TotalPercibir" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -793,6 +811,20 @@ advertencia 6002: La tabla o vista 'Nomina.dbo.Vacaciones' no tiene definida nin
                 <ScalarProperty Name="Fecha_Desde" ColumnName="Fecha_Desde" />
                 <ScalarProperty Name="Empleado_Id" ColumnName="Empleado_Id" />
                 <ScalarProperty Name="Id_Vacaciones" ColumnName="Id_Vacaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalarioBasico">
+            <EntityTypeMapping TypeName="NominaModel.SalarioBasico">
+              <MappingFragment StoreEntitySet="SalarioBasico">
+                <ScalarProperty Name="TotalPercibir" ColumnName="TotalPercibir" />
+                <ScalarProperty Name="IPS" ColumnName="IPS" />
+                <ScalarProperty Name="Anticipo" ColumnName="Anticipo" />
+                <ScalarProperty Name="ConceptosNegativos" ColumnName="ConceptosNegativos" />
+                <ScalarProperty Name="ConceptosPositivos" ColumnName="ConceptosPositivos" />
+                <ScalarProperty Name="Salario" ColumnName="Salario" />
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="IdLiquidacion" ColumnName="IdLiquidacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
