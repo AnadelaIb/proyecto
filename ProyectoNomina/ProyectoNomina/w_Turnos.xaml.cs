@@ -57,25 +57,42 @@ namespace ProyectoNomina
         }
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            
-                Turno turno = new Turno();
+            try {
+                TimeSpan ts;
+                var entrada = txtHorarioEntrada.Text;
+                var salida = txtHorarioSalida.Text;
+                 
+                if (TimeSpan.TryParse(entrada,out ts) && TimeSpan.TryParse(salida, out ts)){
 
-           
-            turno.Hora_Entrada = txtHorarioEntrada.Text;
-            turno.Hora_Salida = txtHorarioSalida.Text;
-            turno.Observaciones = txtObservacion.Text;
-            
+                    Turno turno = new Turno();
 
-            datos.Turno.Add(turno);
-           
 
-            datos.SaveChanges();
-            MessageBox.Show("Tus datos se han guardado correctamente!");
-            CargarDatosGrilla();
-            
-            Limpiar();
+                    turno.Hora_Entrada = txtHorarioEntrada.Text;
+                    turno.Hora_Salida = txtHorarioSalida.Text;
+                    turno.Observaciones = txtObservacion.Text;
 
-            
+
+                    datos.Turno.Add(turno);
+
+
+                    datos.SaveChanges();
+                    MessageBox.Show("Tus datos se han guardado correctamente!");
+                    CargarDatosGrilla();
+
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingrese un horario válido");
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+ 
+
         }
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
@@ -132,6 +149,7 @@ namespace ProyectoNomina
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CargarDatosGrilla();
-        }
+
+    }
     }
 }

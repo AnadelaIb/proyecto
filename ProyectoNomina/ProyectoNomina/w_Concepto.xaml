@@ -23,7 +23,7 @@
                 <Label Grid.Column="0" Grid.Row="0" Content="Id" HorizontalAlignment="Right" Margin="0,2,55,50" Width="31" Grid.RowSpan="2"></Label>
                 <Label Grid.Column="0" Grid.Row="1" Content="Descripcion" HorizontalAlignment="Right" Margin="0,10,116,10" RenderTransformOrigin="0.647,-0.933" Width="150" Grid.ColumnSpan="2"/>
                 <Label Grid.Column="0" Grid.Row="1" Content="Tipo" HorizontalAlignment="Right" Margin="0,49,53,3" Grid.RowSpan="2"/>
-                <TextBox Grid.Column="1" Grid.Row="0" Name="txtId" Width="120" HorizontalAlignment="Left" IsReadOnly="True" Margin="10,0,0,0"/>
+                <TextBox Grid.Column="1" Grid.Row="0" Name="txtId" Width="120" HorizontalAlignment="Left" IsReadOnly="True" Margin="10,0,0,0" IsEnabled="False"/>
                 <TextBox Grid.Column="1"  Name="txtParame"  Width="120" HorizontalAlignment="Left" Margin="10,13,0,10" Grid.Row="1"/>
                 <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" Name="stkTipo">
                     <RadioButton Name="rdbAdicionar" Content="Adicionar" IsChecked="True"></RadioButton>

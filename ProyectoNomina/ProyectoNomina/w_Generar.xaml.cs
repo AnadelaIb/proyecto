@@ -126,9 +126,10 @@ namespace ProyectoNomina
                         }
                     }
                 }
-                IPS[a] = (i.Salario_Basico + conceptosPositivos[a]) * 0.09;
-                
-                Liquidacion_Mensual_Detalle nw = new Liquidacion_Mensual_Detalle();
+                    IPS[a] = Math.Round((i.Salario_Basico + conceptosPositivos[a]) * 0.09);
+                  //  IPS[a] = (i.Salario_Basico + conceptosPositivos[a]) * 0.09;
+
+                    Liquidacion_Mensual_Detalle nw = new Liquidacion_Mensual_Detalle();
                 nw.Liquidacion_Id = idLiquidacion;
                 nw.Empleado_Id = i.Id_Empleado;
                 foreach(var k in concepto)

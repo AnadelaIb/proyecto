@@ -139,6 +139,7 @@ namespace ProyectoNomina
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
+            try { 
             if (dgEmpleados.SelectedItem != null)
             {
 
@@ -166,13 +167,18 @@ namespace ProyectoNomina
                 CargarDatosGrilla();
                 Limpiar();
             }
-            else
+                else { 
                 MessageBox.Show("Debe seleccionar un Empleado de la grilla para modificar!\n Para modificar el salario debes ir a la ventana Salarios");
         }
-
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-
+            try { 
             if (dgEmpleados.SelectedItem != null)
             {
                 Empleado emple = (Empleado)dgEmpleados.SelectedItem;
@@ -186,8 +192,15 @@ namespace ProyectoNomina
                 Limpiar();
             }
             else
-                MessageBox.Show("Debe seleccionar un empleado de la grilla para eliminar!");
+                {
+                    MessageBox.Show("Debe seleccionar un empleado de la grilla para eliminar!");
 
+        }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)

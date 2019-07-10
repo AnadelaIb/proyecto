@@ -70,9 +70,9 @@ namespace ProyectoNomina
 
             mr.Close();
 
-            //w_Inicio lg = new w_Inicio();
+            w_Inicio lg = new w_Inicio();
 
-            //lg.Show();
+            lg.Show();
 
             this.Close();
         }
